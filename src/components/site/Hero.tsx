@@ -1,68 +1,40 @@
 import { EXTERNAL_LINK_PROPS, RVU_LINKS } from "@/lib/links";
-import { GeometricBackground } from "./GeometricBackground";
-
-const FLOATING_STATS = [
-  { value: "₹43.5L", label: "Highest CTC" },
-  { value: "250+", label: "Recruiters" },
-  { value: "~25%", label: "Multiple offers" },
-];
+import { CustomVideoPlayer } from "./CustomVideoPlayer";
 
 export function Hero() {
   return (
-    <section
-      id="top"
-      className="relative isolate overflow-hidden bg-navy-700 pt-20 pb-28 text-paper md:pt-28"
-    >
-      <GeometricBackground variant="dark" />
+    <section id="top" className="bg-navy-700 text-paper">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-[1.3fr_1fr]">
+        <div className="noise-surface noise-surface-dark relative flex flex-col justify-center gap-8 px-6 py-20 lg:px-10 lg:py-28">
+          <h1 className="max-w-xl font-display text-5xl leading-[1.03] font-extrabold tracking-tight sm:text-6xl">
+            Empowering industry innovators with{" "}
+            <span className="text-gold-400">top-tier talent.</span>
+          </h1>
 
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-10 px-6 text-center lg:px-10">
-        <span className="inline-flex items-center gap-2 rounded-full border border-gold-400/40 bg-paper/5 px-4 py-1.5 text-xs font-medium tracking-wide text-gold-300 uppercase">
-          Career Development &amp; Corporate Relations
-        </span>
+          <p className="max-w-lg text-lg text-paper/75">
+            Access a multidisciplinary talent pool of{" "}
+            <strong className="font-semibold text-paper">
+              1,608 industry-ready students
+            </strong>{" "}
+            trained in cutting-edge technology, design, business,
+            filmmaking, psychology and law, recruited by the{" "}
+            <span className="text-gold-300">
+              Career Development &amp; Corporate Relations
+            </span>{" "}
+            office.
+          </p>
 
-        <h1 className="max-w-4xl font-display text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-          Empowering Industry Innovators with{" "}
-          <span className="text-gold-400">Top-Tier Talent</span>
-        </h1>
-
-        <p className="max-w-2xl text-lg text-navy-500 lg:text-xl">
-          Access a multidisciplinary talent pool of{" "}
-          <strong className="font-semibold text-paper">
-            1,600+ industry-ready graduates
-          </strong>{" "}
-          trained in cutting-edge technology, design, business, filmmaking,
-          psychology and law.
-        </p>
-
-        <div className="flex flex-col gap-4 sm:flex-row">
           <a
             href={RVU_LINKS.recruitForm}
             {...EXTERNAL_LINK_PROPS}
-            className="rounded-full bg-gold-500 px-7 py-3.5 text-sm font-semibold text-navy-950 shadow-lg shadow-gold-500/20 transition-transform hover:scale-[1.03] hover:bg-gold-400"
+            className="w-fit rounded-full bg-gold-500 px-7 py-3.5 text-center text-sm font-semibold text-navy-950 shadow-lg shadow-gold-500/20 transition-transform hover:scale-[1.03] hover:bg-gold-400"
           >
             Recruit Now ↗
           </a>
-          <a
-            href={RVU_LINKS.placements}
-            {...EXTERNAL_LINK_PROPS}
-            className="rounded-full border border-paper/25 bg-paper/5 px-7 py-3.5 text-sm font-semibold text-paper backdrop-blur-xl transition-colors hover:bg-paper/10"
-          >
-            Visit Official Placements Page ↗
-          </a>
         </div>
 
-        <div className="mt-6 grid w-full max-w-2xl grid-cols-1 gap-3 sm:grid-cols-3">
-          {FLOATING_STATS.map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-2xl border border-paper/15 bg-paper/8 p-5 backdrop-blur-xl"
-            >
-              <div className="font-display text-2xl font-semibold text-gold-300">
-                {stat.value}
-              </div>
-              <div className="mt-1 text-xs text-navy-500">{stat.label}</div>
-            </div>
-          ))}
+        <div className="flex items-center border-t border-paper/10 bg-navy-700 p-6 lg:border-t-0 lg:p-10">
+          <CustomVideoPlayer />
         </div>
       </div>
     </section>

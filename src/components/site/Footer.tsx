@@ -46,7 +46,7 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
           {COLUMNS.map((column) => (
             <div key={column.title}>
-              <h3 className="font-display text-sm font-semibold text-navy-700">
+              <h3 className="font-display text-sm font-extrabold text-navy-700">
                 {column.title}
               </h3>
               <ul className="mt-4 flex flex-col gap-3">

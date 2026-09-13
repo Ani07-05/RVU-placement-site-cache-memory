@@ -8,7 +8,7 @@ export function CTASection() {
         <div className="relative overflow-hidden rounded-4xl bg-navy-700 px-8 py-16 text-center text-paper sm:px-16">
           <GeometricBackground variant="dark" />
           <div className="relative mx-auto max-w-2xl">
-            <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
               Partner with RV University
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-navy-500 sm:text-base">

@@ -6,6 +6,8 @@ export function GeometricBackground({
   variant = "light",
 }: GeometricBackgroundProps) {
   const dot = variant === "dark" ? "bg-dot-grid-light" : "bg-dot-grid";
+  const ringColor = variant === "dark" ? "text-gold-500/25" : "text-navy-600/15";
+  const lineColor = variant === "dark" ? "stroke-paper/10" : "stroke-navy-700/10";
 
   return (
     <div
@@ -14,8 +16,36 @@ export function GeometricBackground({
     >
       <div className={`absolute inset-0 opacity-40 ${dot}`} />
 
-      <div className="absolute -top-32 -left-24 h-96 w-96 rounded-full bg-gold-400/30 blur-3xl" />
-      <div className="absolute top-1/3 -right-24 h-[28rem] w-[28rem] rounded-full bg-navy-600/25 blur-3xl" />
+      <svg
+        className={`absolute -top-40 -right-40 h-[34rem] w-[34rem] ${ringColor}`}
+        viewBox="0 0 100 100"
+        fill="none"
+      >
+        <circle cx="50" cy="50" r="46" stroke="currentColor" strokeWidth="1" />
+        <circle cx="50" cy="50" r="34" stroke="currentColor" strokeWidth="1" />
+      </svg>
+
+      <svg
+        className="absolute inset-0 h-full w-full"
+        preserveAspectRatio="none"
+      >
+        <line
+          x1="0"
+          y1="20%"
+          x2="100%"
+          y2="0%"
+          className={lineColor}
+          strokeWidth="1"
+        />
+        <line
+          x1="0"
+          y1="100%"
+          x2="100%"
+          y2="72%"
+          className={lineColor}
+          strokeWidth="1"
+        />
+      </svg>
 
       <svg
         className="absolute top-10 right-10 h-16 w-16 rotate-12 text-gold-500/40"
@@ -30,21 +60,6 @@ export function GeometricBackground({
           rx="18"
           stroke="currentColor"
           strokeWidth="3"
-        />
-      </svg>
-
-      <svg
-        className="absolute bottom-16 left-8 h-24 w-24 text-navy-600/20"
-        viewBox="0 0 100 100"
-        fill="none"
-      >
-        <circle
-          cx="50"
-          cy="50"
-          r="46"
-          stroke="currentColor"
-          strokeWidth="3"
-          strokeDasharray="6 10"
         />
       </svg>
 

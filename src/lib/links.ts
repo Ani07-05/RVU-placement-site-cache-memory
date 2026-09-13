@@ -1,6 +1,6 @@
 /**
  * Every outbound link on this site points to the real, official RVU page.
- * This is a static, unofficial visual redesign concept — it has no forms,
+ * This is a static, unofficial visual redesign concept. It has no forms,
  * accounts, or backend of its own, so every action hands off to rvu.edu.in.
  */
 export const RVU_LINKS = {

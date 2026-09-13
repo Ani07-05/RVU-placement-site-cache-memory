@@ -1,23 +1,21 @@
-const STEPS = [
+import { Reveal } from "./Reveal";
+
+const RULES = [
   {
-    title: "Registration & eligibility check",
-    body: "Students register with the placement cell and are verified against academic and attendance eligibility criteria.",
+    title: "Placement Governance",
+    body: "Corporate & Alumni Relations (CAR) coordinates all placement and internship activity across Schools. Placement-related violations are formally referred to the Student Disciplinary Committee (STDC).",
   },
   {
-    title: "Pre-placement training",
-    body: "Mandatory training on aptitude, group discussions, resume building and interview skills.",
+    title: "Student Eligibility",
+    body: "No academic backlogs, minimum 80% attendance in pre-placement training, a signed Placement Registration & Declaration Form, and completion of required experiential components.",
   },
   {
-    title: "Company presentation & shortlisting",
-    body: "Recruiters present their role and shortlist candidates via resume screening or an initial test.",
+    title: "Pre-Placement Training",
+    body: "Mandatory training across domain/technical skills, soft skills, and emotional, behavioural & networking intelligence, with minimum 80% attendance across all components.",
   },
   {
-    title: "Assessments & interviews",
-    body: "Technical/aptitude assessments followed by one or more rounds of interviews, as defined by the recruiter.",
-  },
-  {
-    title: "Offer rollout & onboarding",
-    body: "Selected students receive offers through the placement cell, with onboarding support until joining.",
+    title: "Student Responsibilities",
+    body: "Apply only to roles genuinely willing to join, maintain professional conduct, and honour offers once selected, in line with institutional ethics and industry expectations.",
   },
 ];
 
@@ -25,34 +23,26 @@ export function PlacementProcess() {
   return (
     <section id="process" className="bg-paper py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="mb-14 max-w-2xl">
-          <span className="text-sm font-semibold tracking-wide text-gold-700 uppercase">
-            How it works
-          </span>
-          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-navy-700 sm:text-4xl">
-            Placement process
+        <Reveal className="mb-14 max-w-3xl">
+          <h2 className="font-display text-4xl leading-[1.05] font-extrabold tracking-tight text-navy-700 sm:text-5xl">
+            Rules &amp; regulations.
           </h2>
-        </div>
+        </Reveal>
 
-        <ol className="relative grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-4">
-          <div
-            aria-hidden
-            className="absolute top-6 right-0 left-0 hidden h-px bg-mist-200 md:block"
-          />
-          {STEPS.map((step, i) => (
-            <li key={step.title} className="relative flex flex-col gap-4">
-              <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-navy-700 font-display text-lg font-semibold text-gold-400">
-                {i + 1}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {RULES.map((rule, i) => (
+            <Reveal key={rule.title} delay={i * 90}>
+              <div className="h-full border border-dotted border-mist-200 bg-mist-50 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/60 hover:bg-paper">
+                <h3 className="font-display text-lg font-extrabold text-navy-700">
+                  {rule.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+                  {rule.body}
+                </p>
               </div>
-              <h3 className="font-display text-base font-semibold text-navy-700">
-                {step.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-ink-soft">
-                {step.body}
-              </p>
-            </li>
+            </Reveal>
           ))}
-        </ol>
+        </div>
       </div>
     </section>
   );
