@@ -54,7 +54,7 @@ export function ArchCresting({
 }
 
 /**
- * A petal chakra — a wheel whose spokes are lotus-petal shapes
+ * A petal chakra, a wheel whose spokes are lotus-petal shapes
  * (pointed at the hub, pointed at the rim, bulging between) rather
  * than plain lines. Nods to the Konark/Sarnath wheel reimagined as a
  * rangoli bloom. Meant to be spun via the .animate-chakra-spin
@@ -123,7 +123,7 @@ export function JaliOverlay({
 }
 
 /**
- * A scattered row of paisley (keri/ambi) motifs — the teardrop
+ * A scattered row of paisley (keri/ambi) motifs, the teardrop
  * mango-bud shape common to Kashmiri and Mughal textile borders.
  * Used as a faint horizontal rule between content blocks.
  */
@@ -160,7 +160,7 @@ export function PaisleyRow({
 
 /**
  * A small lotus-bud corner flourish, tucked into the corner of a
- * stat/bento card — a quiet nod to temple-carving corner brackets
+ * stat/bento card, a quiet nod to temple-carving corner brackets
  * rather than a plain empty corner.
  */
 export function CornerLotus({
@@ -200,8 +200,8 @@ export function CornerLotus({
 }
 
 /**
- * A full lotus bloom rendered as a filled watermark texture — layered
- * outer and inner petal rings around a bud — meant to bleed off a
+ * A full lotus bloom rendered as a filled watermark texture, layered
+ * outer and inner petal rings around a bud, meant to bleed off a
  * card's corner as a soft decorative motif, echoing rangoli florals.
  */
 export function LotusBloom({
@@ -244,7 +244,7 @@ export function LotusBloom({
 }
 
 /**
- * A filled diya — a boat-shaped oil-lamp base with a teardrop flame
+ * A filled diya, a boat-shaped oil-lamp base with a teardrop flame
  * above it, a warm architectural counterpart to the floral blooms.
  */
 export function DiyaBloom({
@@ -271,7 +271,7 @@ export function DiyaBloom({
 }
 
 /**
- * A filled Ashoka-style chakra — a solid rim ring with straight
+ * A filled Ashoka-style chakra, a solid rim ring with straight
  * spokes radiating from a hub, the true "wheel" reading distinct
  * from the petal-based blooms.
  */
@@ -314,7 +314,7 @@ export function ChakraBloom({
 }
 
 /**
- * A filled jali lattice — a rectangular grid of diamond tiles, the
+ * A filled jali lattice, a rectangular grid of diamond tiles, the
  * pierced-screen vocabulary of a jharokha window. Tiled rather than
  * radial, so it reads as a lattice, never a flower.
  */
@@ -364,7 +364,7 @@ export function JaliGridBloom({
 }
 
 /**
- * A filled gopuram tower — stacked rectangular tiers narrowing
+ * A filled gopuram tower, stacked rectangular tiers narrowing
  * toward a peak, a temple-tower silhouette built from straight edges
  * rather than any radial or rounded shape.
  */
@@ -402,7 +402,7 @@ export function StepTowerBloom({
 }
 
 /**
- * A filled peacock feather — a teardrop plume with a layered "eye",
+ * A filled peacock feather, a teardrop plume with a layered "eye",
  * a distinct decorative motif from the geometric and floral marks.
  */
 export function PeacockFeatherBloom({
@@ -430,7 +430,7 @@ export function PeacockFeatherBloom({
 }
 
 /**
- * A filled eight-point star bloom — solid points radiating from a
+ * A filled eight-point star bloom, solid points radiating from a
  * shared centre, the ashtakona silhouette as a watermark instead of
  * an outline.
  */
@@ -467,7 +467,7 @@ export function StarBloom({
 }
 
 /**
- * A filled octagram — two overlapping solid squares forming an
+ * A filled octagram, two overlapping solid squares forming an
  * eight-point Mughal jali star, flat-edged and geometric rather than
  * the spiked ashtakona or any petal shape.
  */
@@ -495,7 +495,7 @@ export function OctagramBloom({
 }
 
 /**
- * A spinning lotus-petal chakra — the same filled petal shape as
+ * A spinning lotus-petal chakra, the same filled petal shape as
  * LotusBloom, layered into two staggered rings around a hub, sized to
  * read cleanly while rotating via .animate-chakra-spin.
  */
@@ -550,7 +550,7 @@ export function PetalChakra({
 }
 
 /**
- * A radiating sun medallion (surya) — concentric ring with straight
+ * A radiating sun medallion (surya), concentric ring with straight
  * and flame-tipped rays alternating, evoking temple sun-carvings.
  */
 export function SunMedallion({
@@ -594,7 +594,7 @@ export function SunMedallion({
 
 /**
  * A curling creeper vine (bel-buti) that climbs one edge, with small
- * leaf buds branching off — a textile-border flourish rather than a
+ * leaf buds branching off, a textile-border flourish rather than a
  * medallion.
  */
 export function VineFlourish({
@@ -637,7 +637,7 @@ export function VineFlourish({
 }
 
 /**
- * An eight-point star (ashtakona) built from two overlapping squares —
+ * An eight-point star (ashtakona) built from two overlapping squares ,
  * a Mughal-jaali star motif, distinct from the round chakra medallion.
  */
 export function StarburstMotif({
@@ -670,7 +670,7 @@ export function StarburstMotif({
 }
 
 /**
- * An interlocking kolam knot — a continuous looped-line lattice drawn
+ * An interlocking kolam knot, a continuous looped-line lattice drawn
  * around a dot grid, like a threshold rangoli sketch.
  */
 export function KolamKnot({
@@ -706,7 +706,7 @@ export function KolamKnot({
 }
 
 /**
- * A diya (oil lamp) silhouette with a teardrop flame — a small, warm
+ * A diya (oil lamp) silhouette with a teardrop flame, a small, warm
  * corner motif rather than a symmetric medallion.
  */
 export function DiyaGlow({
@@ -740,7 +740,7 @@ export function DiyaGlow({
 }
 
 /**
- * A single booti sprig — a small three-leaf floral bud used as a
+ * A single booti sprig, a small three-leaf floral bud used as a
  * sparse corner accent, quieter than the full lotus bloom.
  */
 export function BootiSprig({

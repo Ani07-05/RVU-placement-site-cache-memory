@@ -59,7 +59,7 @@ const RECRUITERS: Tile[] = [
 
 const HIGHLIGHTS = [
   { value: "250+", label: "Organizations" },
-  { value: "₹43.5L", label: "Top offer, Aviatrix" },
+  { value: "₹43.5L", label: "Top offer" },
   { value: "425+", label: "Offers made" },
 ];
 

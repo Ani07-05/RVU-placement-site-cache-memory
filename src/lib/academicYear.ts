@@ -1,5 +1,5 @@
 /**
- * RVU's academic year rolls over on 1 June — before that date the
+ * RVU's academic year rolls over on 1 June; before that date the
  * ongoing year is (currentYear-1)-currentYear, on/after it's
  * currentYear-(currentYear+1).
  */

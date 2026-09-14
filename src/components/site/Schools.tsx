@@ -177,7 +177,7 @@ export function Schools() {
               {GRAND_TOTAL.toLocaleString("en-IN")} total students eligible
               for recruitment this season, across every course in every
               school. Each ring is a full breakdown of that school&apos;s
-              courses — segments always add up to its total.
+              courses; segments always add up to its total.
             </p>
           </div>
           <a

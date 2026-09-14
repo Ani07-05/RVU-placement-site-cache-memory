@@ -16,7 +16,7 @@ const wrap = (children: ReactNode) => (
   </svg>
 );
 
-/** MNCs — a multi-storey office tower. */
+/** MNCs, a multi-storey office tower. */
 export function TowerIcon({ className = "" }: IconProps) {
   return (
     <span className={className}>
@@ -31,7 +31,7 @@ export function TowerIcon({ className = "" }: IconProps) {
   );
 }
 
-/** GCCs — a globe with connecting nodes. */
+/** GCCs, a globe with connecting nodes. */
 export function GlobeIcon({ className = "" }: IconProps) {
   return (
     <span className={className}>
@@ -46,7 +46,7 @@ export function GlobeIcon({ className = "" }: IconProps) {
   );
 }
 
-/** Tech — brackets around a slash, code editor shorthand. */
+/** Tech, brackets around a slash, code editor shorthand. */
 export function CodeBracketsIcon({ className = "" }: IconProps) {
   return (
     <span className={className}>
@@ -60,7 +60,7 @@ export function CodeBracketsIcon({ className = "" }: IconProps) {
   );
 }
 
-/** Consulting — a handshake. */
+/** Consulting, a handshake. */
 export function HandshakeIcon({ className = "" }: IconProps) {
   return (
     <span className={className}>
@@ -74,7 +74,7 @@ export function HandshakeIcon({ className = "" }: IconProps) {
   );
 }
 
-/** Financial — a stacked coin / rupee note. */
+/** Financial, a stacked coin / rupee note. */
 export function CoinStackIcon({ className = "" }: IconProps) {
   return (
     <span className={className}>
@@ -89,7 +89,7 @@ export function CoinStackIcon({ className = "" }: IconProps) {
   );
 }
 
-/** Startups — a launching rocket. */
+/** Startups, a launching rocket. */
 export function RocketIcon({ className = "" }: IconProps) {
   return (
     <span className={className}>

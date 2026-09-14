@@ -1,6 +1,6 @@
 type IconProps = { className?: string };
 
-/** School of Computer Science & Engineering — a filled circuit chip. */
+/** School of Computer Science & Engineering, a filled circuit chip. */
 export function ChipIcon({ className = "" }: IconProps) {
   return (
     <svg aria-hidden viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -18,7 +18,7 @@ export function ChipIcon({ className = "" }: IconProps) {
   );
 }
 
-/** School of Economics & Business — solid ascending bars. */
+/** School of Economics & Business, solid ascending bars. */
 export function BarsIcon({ className = "" }: IconProps) {
   return (
     <svg aria-hidden viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -29,7 +29,7 @@ export function BarsIcon({ className = "" }: IconProps) {
   );
 }
 
-/** School of Design & Innovation — a solid compass ring with needle. */
+/** School of Design & Innovation, a solid compass ring with needle. */
 export function CompassIcon({ className = "" }: IconProps) {
   return (
     <svg aria-hidden viewBox="0 0 24 24" fill="currentColor" fillRule="evenodd" className={className}>
@@ -43,7 +43,7 @@ export function CompassIcon({ className = "" }: IconProps) {
   );
 }
 
-/** School of Law — a filled scale of justice. */
+/** School of Law, a filled scale of justice. */
 export function ScaleIcon({ className = "" }: IconProps) {
   return (
     <svg aria-hidden viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -57,7 +57,7 @@ export function ScaleIcon({ className = "" }: IconProps) {
   );
 }
 
-/** School of Liberal Arts & Sciences — a filled open book. */
+/** School of Liberal Arts & Sciences, a filled open book. */
 export function BookIcon({ className = "" }: IconProps) {
   return (
     <svg aria-hidden viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -67,7 +67,7 @@ export function BookIcon({ className = "" }: IconProps) {
   );
 }
 
-/** School of Film, Media & Creative Arts — a filled clapperboard. */
+/** School of Film, Media & Creative Arts, a filled clapperboard. */
 export function ClapperIcon({ className = "" }: IconProps) {
   return (
     <svg aria-hidden viewBox="0 0 24 24" fill="currentColor" className={className}>

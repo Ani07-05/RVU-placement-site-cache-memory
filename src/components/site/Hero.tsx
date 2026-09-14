@@ -29,7 +29,7 @@ export function Hero() {
                 1,608 industry-ready students
               </strong>{" "}
               trained in technology, design, business, filmmaking, psychology
-              and law — recruited directly through the Career Development
+              and law, recruited directly through the Career Development
               &amp; Corporate Relations office.
             </p>
 

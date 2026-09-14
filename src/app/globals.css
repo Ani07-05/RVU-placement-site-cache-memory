@@ -126,7 +126,7 @@ html {
   background-size: 22px 22px;
 }
 
-/* Jali (lattice) texture — subtle nod to Indian jali screens */
+/* Jali (lattice) texture: subtle nod to Indian jali screens */
 .bg-jali {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='72' height='72'><path d='M36 2L70 36L36 70L2 36Z' fill='none' stroke='rgba(35,48,57,0.07)' stroke-width='1'/><circle cx='36' cy='36' r='5' fill='none' stroke='rgba(35,48,57,0.07)' stroke-width='1'/></svg>");
   background-size: 72px 72px;

@@ -34,6 +34,29 @@ export function CTASection() {
                 Contact Placement Cell ↗
               </a>
             </div>
+
+            <div className="relative z-10 mt-14 border-t border-paper/15 pt-10">
+              <h3 className="font-display text-sm font-semibold tracking-[0.14em] text-gold-300 uppercase">
+                Contact Us
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-navy-500">
+                Corporate &amp; Alumni Relations (CAR) Office, RV University,
+                <br />
+                5th Floor, D Block,
+                <br />
+                RV Vidyanikethan Post, 8th Mile,
+                <br />
+                Mysuru Road, Bengaluru &ndash; 560 059
+              </p>
+              <p className="mt-3 text-sm">
+                <a
+                  href="mailto:placements@rvu.edu.in"
+                  className="font-semibold text-paper transition-colors hover:text-gold-300"
+                >
+                  placements@rvu.edu.in
+                </a>
+              </p>
+            </div>
           </div>
 
           <div className="relative mt-14 -mb-10 sm:-mb-10">
