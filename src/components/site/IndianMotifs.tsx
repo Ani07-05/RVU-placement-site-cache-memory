@@ -110,6 +110,42 @@ export function JaliOverlay({
 }
 
 /**
+ * A scattered row of paisley (keri/ambi) motifs — the teardrop
+ * mango-bud shape common to Kashmiri and Mughal textile borders.
+ * Used as a faint horizontal rule between content blocks.
+ */
+export function PaisleyRow({
+  tone = "dark",
+  className = "",
+}: {
+  tone?: Tone;
+  className?: string;
+}) {
+  const count = 10;
+  const width = 60;
+
+  return (
+    <svg
+      aria-hidden
+      viewBox={`0 0 ${count * width} 40`}
+      preserveAspectRatio="none"
+      className={`h-6 w-full ${TONE_STROKE[tone]} ${className}`}
+    >
+      {Array.from({ length: count }).map((_, i) => (
+        <path
+          key={i}
+          transform={`translate(${i * width + width / 2 - 8},4)`}
+          d="M8 0C13 0 16 5 16 11C16 18 11 24 4 26C10 24 6 16 0 15C4 15 8 11 8 6C8 3.5 8 1.5 8 0Z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1"
+        />
+      ))}
+    </svg>
+  );
+}
+
+/**
  * A single ogee-arch frame, used to give a stat or media block a
  * silhouette reminiscent of a jharokha window rather than a plain
  * rectangle.

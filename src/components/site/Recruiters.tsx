@@ -6,11 +6,11 @@ type Tile =
   | { type: "mark"; name: string };
 
 const RECRUITERS: Tile[] = [
-  { type: "image", file: "logo1.png", name: "Infosys" },
-  { type: "image", file: "logo2.png", name: "Tata Consultancy Services" },
-  { type: "image", file: "logo3.png", name: "EY" },
-  { type: "image", file: "logo4.png", name: "Deloitte" },
   { type: "image", file: "logo5.png", name: "Grant Thornton" },
+  { type: "image", file: "logo3.png", name: "EY" },
+  { type: "image", file: "logo-intellicar.png", name: "Intellicar" },
+  { type: "mark", name: "Ratch AI" },
+  { type: "image", file: "logo4.png", name: "Deloitte" },
   { type: "image", file: "logo6.png", name: "Bank of America" },
   { type: "image", file: "logo7.png", name: "Walmart" },
   { type: "image", file: "logo8.png", name: "PwC" },
@@ -22,8 +22,8 @@ const RECRUITERS: Tile[] = [
   { type: "image", file: "logo14.png", name: "JK Tyre" },
   { type: "image", file: "logo15.png", name: "Swiggy" },
   { type: "image", file: "logo16.png", name: "Progress ShareFile" },
-  { type: "image", file: "logo-intellicar.png", name: "Intellicar" },
-  { type: "mark", name: "Ratch AI" },
+  { type: "image", file: "logo2.png", name: "Tata Consultancy Services" },
+  { type: "image", file: "logo1.png", name: "Infosys" },
 ];
 
 const HIGHLIGHTS = [
