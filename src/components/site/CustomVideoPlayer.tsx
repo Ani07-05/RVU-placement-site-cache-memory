@@ -24,15 +24,27 @@ export function CustomVideoPlayer() {
     if (!video) return;
 
     const onTime = () => setCurrent(video.currentTime);
-    const onLoaded = () => setDuration(video.duration);
+    const onLoaded = () => {
+      if (Number.isFinite(video.duration)) setDuration(video.duration);
+    };
     const onEnded = () => setPlaying(false);
 
     video.addEventListener("timeupdate", onTime);
     video.addEventListener("loadedmetadata", onLoaded);
+    video.addEventListener("durationchange", onLoaded);
     video.addEventListener("ended", onEnded);
+
+    // Metadata may already be loaded by the time this effect runs
+    // (e.g. cached response), in which case the events above never fire.
+    if (video.readyState >= 1) {
+      onLoaded();
+      onTime();
+    }
+
     return () => {
       video.removeEventListener("timeupdate", onTime);
       video.removeEventListener("loadedmetadata", onLoaded);
+      video.removeEventListener("durationchange", onLoaded);
       video.removeEventListener("ended", onEnded);
     };
   }, []);
