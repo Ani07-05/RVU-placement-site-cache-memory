@@ -10,10 +10,6 @@ export function CTASection() {
             tone="light"
             className="pointer-events-none absolute -top-16 -left-20 h-72 w-72 opacity-60"
           />
-          <RangoliMedallion
-            tone="light"
-            className="pointer-events-none absolute -right-20 -bottom-16 h-72 w-72 opacity-60"
-          />
           <div className="relative mx-auto max-w-2xl">
             <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               Partner with RV University
