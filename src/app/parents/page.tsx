@@ -32,6 +32,14 @@ const PARENT_FAQS = [
     q: "How can I stay informed or reach the placement office?",
     a: "The Recruiters and Numbers sections on the homepage are updated each season, and the CAR office can be reached directly at placements@rvu.edu.in.",
   },
+  {
+    q: "What role do the individual Schools play in this process?",
+    a: "CAR acts as the University's primary interface across every School, coordinating recruitment, internships, industry collaborations, and alumni engagement together with each School's faculty.",
+  },
+  {
+    q: "Does the university support internships alongside full-time placements?",
+    a: "Yes. Internships are coordinated by CAR as part of industry-integrated coursework, alongside full-time placement drives, so students build workplace experience throughout their programme.",
+  },
 ];
 
 export default function ParentsPage() {

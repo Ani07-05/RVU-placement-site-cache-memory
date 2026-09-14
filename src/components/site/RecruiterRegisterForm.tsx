@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, type FormEvent, type ReactNode } from "react";
 
 const INPUT_CLASS =
@@ -88,13 +89,16 @@ export function RecruiterRegisterForm() {
                 key={type}
                 className="flex cursor-pointer items-center gap-3 text-sm text-ink-soft"
               >
-                <input
-                  type="radio"
-                  name="hiringType"
-                  value={type}
-                  required
-                  className="h-4 w-4 border-mist-200 text-gold-600 focus:ring-gold-500"
-                />
+                <span className="relative flex h-4 w-4 shrink-0 items-center justify-center">
+                  <input
+                    type="radio"
+                    name="hiringType"
+                    value={type}
+                    required
+                    className="peer h-4 w-4 shrink-0 cursor-pointer appearance-none rounded-full border border-mist-200 transition-colors checked:border-gold-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+                  />
+                  <span className="pointer-events-none absolute h-2 w-2 scale-0 rounded-full bg-gold-600 transition-transform duration-150 peer-checked:scale-100" />
+                </span>
                 {type}
               </label>
             ))}
@@ -115,13 +119,21 @@ export function RecruiterRegisterForm() {
         </Field>
       </div>
 
-      <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-mist-200 pt-5">
-        <button
-          type="submit"
-          className="rounded-full bg-navy-700 px-7 py-3.5 text-sm font-semibold text-paper shadow-lg shadow-navy-700/15 transition-transform hover:scale-[1.02] hover:bg-navy-600"
-        >
-          Submit
-        </button>
+      <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-mist-200 pt-5">
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            type="submit"
+            className="rounded-full bg-navy-700 px-7 py-3.5 text-sm font-semibold text-paper shadow-lg shadow-navy-700/15 transition-transform hover:scale-[1.02] hover:bg-navy-600"
+          >
+            Submit
+          </button>
+          <Link
+            href="/"
+            className="rounded-full border border-mist-200 px-7 py-3.5 text-sm font-semibold text-navy-700 transition-colors hover:bg-mist-50"
+          >
+            Cancel
+          </Link>
+        </div>
         <span className="text-xs text-ink-soft">Never submit passwords</span>
       </div>
     </form>

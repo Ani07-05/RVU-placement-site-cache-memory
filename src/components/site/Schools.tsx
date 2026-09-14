@@ -163,7 +163,7 @@ export function Schools() {
       id="schools"
       className="relative overflow-hidden bg-paper py-24 lg:py-32"
     >
-      <JaliOverlay tone="light" className="opacity-60" />
+      <JaliOverlay tone="dark" className="opacity-60" />
       <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
         <Reveal className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-xl">

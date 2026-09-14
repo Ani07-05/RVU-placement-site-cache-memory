@@ -28,6 +28,7 @@ const RECRUITERS: Tile[] = [
   { type: "image", file: "logo3.png", name: "EY" },
   { type: "image", file: "logo-intellicar.png", name: "Intellicar" },
   { type: "mark", name: "Ratch AI" },
+  { type: "image", file: "docusign_user.png", name: "DocuSign" },
   { type: "image", file: "logo4.png", name: "Deloitte" },
   { type: "image", file: "logo6.png", name: "Bank of America" },
   { type: "image", file: "logo7.png", name: "Walmart" },
@@ -53,8 +54,6 @@ const RECRUITERS: Tile[] = [
   { type: "image", file: "bakerhughes.svg", name: "Baker Hughes" },
   { type: "image", file: "zs.png", name: "ZS Associates" },
   { type: "image", file: "societegenerale.svg", name: "Societe Generale" },
-  { type: "image", file: "msd.svg", name: "MSD Global" },
-  { type: "image", file: "docusign.svg", name: "DocuSign" },
 ];
 
 const HIGHLIGHTS = [

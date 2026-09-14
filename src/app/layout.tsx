@@ -17,6 +17,20 @@ export const metadata: Metadata = {
   title: "RV University Placements: Career Development & Corporate Relations",
   description:
     "Redesign concept for RV University's placements page: 1,608 industry-ready students eligible for recruitment, 250+ recruiters, and a highest offer of ₹43.5 LPA. Unofficial; official info lives at rvu.edu.in/placements.",
+  icons: {
+    icon: [
+      {
+        url: "/favicon-light.svg",
+        media: "(prefers-color-scheme: light)",
+        type: "image/svg+xml",
+      },
+      {
+        url: "/favicon-dark.svg",
+        media: "(prefers-color-scheme: dark)",
+        type: "image/svg+xml",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

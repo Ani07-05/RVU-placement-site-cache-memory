@@ -3,6 +3,7 @@ import { FAQSection } from "@/components/site/FAQSection";
 import { Footer } from "@/components/site/Footer";
 import { Navbar } from "@/components/site/Navbar";
 import { StudentPrepResources } from "@/components/site/StudentPrepResources";
+import { StudentProcessFlow } from "@/components/site/StudentProcessFlow";
 import { EXTERNAL_LINK_PROPS, RVU_LINKS } from "@/lib/links";
 
 export const metadata: Metadata = {
@@ -32,6 +33,14 @@ const STUDENT_FAQS = [
     q: "Who do I contact with placement questions?",
     a: "Reach the Corporate & Alumni Relations (CAR) office at placements@rvu.edu.in for anything specific to your registration or eligibility.",
   },
+  {
+    q: "Does CAR support internships as well as full-time placements?",
+    a: "Yes. Internships are coordinated by CAR alongside full-time placements, as part of the University's broader industry-integrated coursework and experiential learning requirements.",
+  },
+  {
+    q: "Is placement a one-time event, or does it run all year?",
+    a: "Drives run continuously through the season as recruiters visit campus, rather than a single one-time event, so eligible students keep getting opportunities across the year.",
+  },
 ];
 
 export default function StudentsPage() {
@@ -54,7 +63,7 @@ export default function StudentsPage() {
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <a
-                href="/#process"
+                href="#student-process"
                 className="rounded-full bg-navy-700 px-6 py-3 text-sm font-semibold text-paper transition-colors hover:bg-navy-600"
               >
                 View placement process
@@ -69,6 +78,8 @@ export default function StudentsPage() {
             </div>
           </div>
         </section>
+
+        <StudentProcessFlow />
 
         <StudentPrepResources />
 
