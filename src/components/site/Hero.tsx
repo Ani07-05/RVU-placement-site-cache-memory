@@ -7,7 +7,7 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden bg-paper pt-8 pb-20 sm:pt-14 sm:pb-28 lg:pt-20 lg:pb-36">
       <RangoliMedallion
         tone="dark"
-        className="pointer-events-none absolute -top-24 -right-32 h-[28rem] w-[28rem] opacity-70 lg:h-[36rem] lg:w-[36rem]"
+        className="animate-chakra-spin pointer-events-none absolute -top-16 -right-20 h-72 w-72 opacity-70 lg:h-[24rem] lg:w-[24rem]"
       />
 
       <div className="relative mx-auto max-w-6xl px-6 lg:px-8">

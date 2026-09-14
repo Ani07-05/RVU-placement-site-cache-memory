@@ -5,6 +5,11 @@ const TONE_STROKE: Record<Tone, string> = {
   light: "text-paper/14",
 };
 
+const TONE_FILL: Record<Tone, string> = {
+  dark: "text-navy-700/[0.07]",
+  light: "text-paper/[0.14]",
+};
+
 /**
  * A repeating row of cusped-arch finials, evoking a temple/gopuram
  * cresting line (āmalaka + jharokha silhouettes). Used as a soft
@@ -47,9 +52,11 @@ export function ArchCresting({
 }
 
 /**
- * A rangoli-style radial medallion (concentric rings, lotus petals,
- * diamond lattice) used as a quiet corner accent on dark hero/CTA
- * surfaces — nods to stepwell and temple ceiling roundels.
+ * A petal chakra — a wheel whose spokes are lotus-petal shapes
+ * (pointed at the hub, pointed at the rim, bulging between) rather
+ * than plain lines. Nods to the Konark/Sarnath wheel reimagined as a
+ * rangoli bloom. Meant to be spun via the .animate-chakra-spin
+ * utility.
  */
 export function RangoliMedallion({
   tone = "light",
@@ -58,16 +65,21 @@ export function RangoliMedallion({
   tone?: Tone;
   className?: string;
 }) {
-  const petals = 12;
-  const petalEls = Array.from({ length: petals }, (_, i) => {
-    const angle = (360 / petals) * i;
+  const petalCount = 12;
+  const hubR = 7;
+  const rimR = 46;
+  const bulge = 7;
+
+  const petals = Array.from({ length: petalCount }, (_, i) => {
+    const angle = (360 / petalCount) * i;
     return (
       <path
         key={i}
-        d="M50 8 C56 22 56 30 50 40 C44 30 44 22 50 8Z"
+        d={`M50 ${50 - hubR} C ${50 - bulge} ${50 - (hubR + rimR) * 0.42}, ${50 - bulge} ${50 - (hubR + rimR) * 0.62}, 50 ${50 - rimR} C ${50 + bulge} ${50 - (hubR + rimR) * 0.62}, ${50 + bulge} ${50 - (hubR + rimR) * 0.42}, 50 ${50 - hubR} Z`}
         fill="none"
         stroke="currentColor"
-        strokeWidth="0.8"
+        strokeWidth="1.1"
+        strokeLinejoin="round"
         transform={`rotate(${angle} 50 50)`}
       />
     );
@@ -79,10 +91,9 @@ export function RangoliMedallion({
       viewBox="0 0 100 100"
       className={`${TONE_STROKE[tone]} ${className}`}
     >
-      <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" strokeWidth="0.8" />
-      <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" strokeWidth="0.8" />
-      {petalEls}
-      <circle cx="50" cy="50" r="5" fill="none" stroke="currentColor" strokeWidth="0.8" />
+      <circle cx="50" cy="50" r={rimR} fill="none" stroke="currentColor" strokeWidth="1.4" />
+      {petals}
+      <circle cx="50" cy="50" r={hubR} fill="none" stroke="currentColor" strokeWidth="1.4" />
     </svg>
   );
 }
@@ -141,6 +152,88 @@ export function PaisleyRow({
           strokeWidth="1"
         />
       ))}
+    </svg>
+  );
+}
+
+/**
+ * A small lotus-bud corner flourish, tucked into the corner of a
+ * stat/bento card — a quiet nod to temple-carving corner brackets
+ * rather than a plain empty corner.
+ */
+export function CornerLotus({
+  tone = "dark",
+  className = "",
+}: {
+  tone?: Tone;
+  className?: string;
+}) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 64 64"
+      className={`${TONE_STROKE[tone]} ${className}`}
+    >
+      <path
+        d="M4 4C20 4 28 12 28 28"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.2"
+      />
+      <path
+        d="M4 4C4 20 12 28 28 28"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.2"
+      />
+      <path
+        d="M8 10C16 10 20 16 20 22"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1"
+      />
+      <circle cx="8" cy="8" r="2.2" fill="none" stroke="currentColor" strokeWidth="1" />
+    </svg>
+  );
+}
+
+/**
+ * A full lotus bloom rendered as a filled watermark texture — layered
+ * outer and inner petal rings around a bud — meant to bleed off a
+ * card's corner as a soft decorative motif, echoing rangoli florals.
+ */
+export function LotusBloom({
+  tone = "dark",
+  className = "",
+}: {
+  tone?: Tone;
+  className?: string;
+}) {
+  const outerPetals = Array.from({ length: 8 }, (_, i) => (
+    <path
+      key={`outer-${i}`}
+      d="M50 6C60 20 60 34 50 46C40 34 40 20 50 6Z"
+      transform={`rotate(${i * 45} 50 50)`}
+    />
+  ));
+  const innerPetals = Array.from({ length: 8 }, (_, i) => (
+    <path
+      key={`inner-${i}`}
+      d="M50 22C57 30 57 38 50 46C43 38 43 30 50 22Z"
+      transform={`rotate(${i * 45 + 22.5} 50 50)`}
+    />
+  ));
+
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 100 100"
+      fill="currentColor"
+      className={`${TONE_FILL[tone]} ${className}`}
+    >
+      {outerPetals}
+      {innerPetals}
+      <circle cx="50" cy="50" r="7" />
     </svg>
   );
 }

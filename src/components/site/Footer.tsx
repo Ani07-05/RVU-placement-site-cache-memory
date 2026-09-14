@@ -1,5 +1,4 @@
 import { EXTERNAL_LINK_PROPS, RVU_LINKS } from "@/lib/links";
-import { ArchCresting } from "./IndianMotifs";
 
 const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
   {
@@ -43,8 +42,6 @@ const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
 export function Footer() {
   return (
     <footer className="bg-mist-50">
-      <ArchCresting tone="dark" className="opacity-80" />
-
       <div className="mx-auto max-w-6xl px-6 pt-8 pb-16 lg:px-8 lg:pt-10">
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
           {COLUMNS.map((column) => (
@@ -69,32 +66,48 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-16 flex flex-col items-center gap-6 border-t border-mist-200 pt-14 text-center">
+        <div className="relative mt-16 flex flex-col items-center gap-6 border-t border-mist-200 pt-10">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/brand/rvu-logo.svg"
             alt="RV University"
-            className="h-14 w-auto opacity-90 sm:h-16"
+            className="relative z-10 h-24 w-auto shrink-0 sm:h-36 lg:h-44"
           />
-          <p className="max-w-xl text-xs leading-relaxed text-ink-soft">
-            Unofficial concept redesign of the RV University placements page.
-            All official information, forms and actions live at{" "}
-            <a
-              href={RVU_LINKS.placements}
-              {...EXTERNAL_LINK_PROPS}
-              className="font-medium text-navy-700 underline underline-offset-2"
+
+          <div className="mt-6 flex h-14 w-full items-start justify-center gap-6 overflow-hidden sm:mt-8 sm:h-20 sm:gap-16 lg:h-24">
+            <span
+              aria-hidden
+              className="font-display font-bold tracking-tight select-none"
+              style={{
+                fontSize: "clamp(4rem, 9vw, 7rem)",
+                lineHeight: 1,
+                backgroundImage:
+                  "radial-gradient(circle at 28% 24%, rgba(255,255,255,0.55), transparent 42%), linear-gradient(140deg, var(--color-gold-300) 0%, var(--color-gold-600) 45%, var(--color-navy-600) 100%)",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                color: "transparent",
+                WebkitTextFillColor: "transparent",
+              }}
             >
-              rvu.edu.in/placements
-            </a>
-            .
-          </p>
-          <a
-            href={RVU_LINKS.home}
-            {...EXTERNAL_LINK_PROPS}
-            className="text-xs font-medium text-navy-700"
-          >
-            rvu.edu.in ↗
-          </a>
+              प्रज्ञाः
+            </span>
+            <span
+              aria-hidden
+              className="font-display font-bold tracking-tight select-none"
+              style={{
+                fontSize: "clamp(4rem, 9vw, 7rem)",
+                lineHeight: 1,
+                backgroundImage:
+                  "radial-gradient(circle at 72% 24%, rgba(255,255,255,0.55), transparent 42%), linear-gradient(220deg, var(--color-gold-300) 0%, var(--color-gold-600) 45%, var(--color-navy-600) 100%)",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                color: "transparent",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              धीराः
+            </span>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,4 +1,5 @@
 import { Reveal } from "./Reveal";
+import { LotusBloom } from "./IndianMotifs";
 
 const STATS: {
   value: string;
@@ -15,23 +16,20 @@ const STATS: {
 ];
 
 const SCHOOL_BREAKDOWN = [
-  { abbr: "SoCSE", students: 737, color: "text-gold-300" },
-  { abbr: "SoEB", students: 529, color: "text-gold-500" },
-  { abbr: "SDI", students: 157, color: "text-gold-700" },
-  { abbr: "SoL", students: 105, color: "text-paper/60" },
-  { abbr: "SoLAS", students: 59, color: "text-paper/35" },
-  { abbr: "SoFMCA", students: 4, color: "text-paper/20" },
+  { abbr: "SoCSE", students: 737, bg: "bg-gold-300" },
+  { abbr: "SoEB", students: 529, bg: "bg-gold-500" },
+  { abbr: "SDI", students: 157, bg: "bg-gold-700" },
+  { abbr: "SoL", students: 105, bg: "bg-paper/60" },
+  { abbr: "SoLAS", students: 59, bg: "bg-paper/35" },
+  { abbr: "SoFMCA", students: 4, bg: "bg-paper/20" },
 ];
 
-const SCHOOL_TOTAL = SCHOOL_BREAKDOWN.reduce((sum, s) => sum + s.students, 0);
+const SCHOOL_MAX = Math.max(...SCHOOL_BREAKDOWN.map((s) => s.students));
 
-let cumulative = 0;
-const DONUT_SEGMENTS = SCHOOL_BREAKDOWN.map((school) => {
-  const pct = (school.students / SCHOOL_TOTAL) * 100;
-  const offset = cumulative;
-  cumulative += pct;
-  return { ...school, pct, offset };
-});
+const SCHOOL_RANKED = SCHOOL_BREAKDOWN.map((school) => ({
+  ...school,
+  pct: Math.max((school.students / SCHOOL_MAX) * 100, 3),
+}));
 
 const toneClasses: Record<string, string> = {
   light: "bg-mist-50 text-navy-700",
@@ -53,7 +51,11 @@ export function StatsBento() {
 
         <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4">
           <Reveal className="col-span-2 lg:col-span-2 lg:row-span-2">
-            <div className="flex h-full flex-col gap-6 rounded-3xl bg-navy-700 p-7 text-paper transition-transform duration-300 hover:-translate-y-1 sm:p-9">
+            <div className="relative flex h-full flex-col gap-6 overflow-hidden rounded-3xl bg-navy-700 p-7 text-paper transition-transform duration-300 hover:-translate-y-1 sm:p-9">
+              <LotusBloom
+                tone="light"
+                className="pointer-events-none absolute -top-8 -right-8 h-40 w-40 rotate-12"
+              />
               <div>
                 <div className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">
                   1,608
@@ -63,54 +65,23 @@ export function StatsBento() {
                 </div>
               </div>
 
-              <div className="mt-auto flex flex-col gap-6 sm:flex-row sm:items-center">
-                <svg
-                  viewBox="0 0 36 36"
-                  className="h-28 w-28 shrink-0 -rotate-90"
-                >
-                  <circle
-                    cx="18"
-                    cy="18"
-                    r="15.9155"
-                    fill="none"
-                    className="text-paper/10"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                  />
-                  {DONUT_SEGMENTS.map((school) => (
-                    <circle
-                      key={school.abbr}
-                      cx="18"
-                      cy="18"
-                      r="15.9155"
-                      fill="none"
-                      className={school.color}
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      strokeLinecap="butt"
-                      pathLength={100}
-                      strokeDasharray={`${school.pct} ${100 - school.pct}`}
-                      strokeDashoffset={-school.offset}
-                    />
-                  ))}
-                </svg>
-
-                <div className="grid grid-cols-2 gap-x-4 gap-y-2">
-                  {SCHOOL_BREAKDOWN.map((school) => (
-                    <div key={school.abbr} className="flex items-center gap-2">
-                      <span
-                        className={`h-1.5 w-1.5 shrink-0 rounded-full bg-current ${school.color}`}
-                        aria-hidden
+              <div className="mt-auto flex flex-col gap-2.5">
+                {SCHOOL_RANKED.map((school) => (
+                  <div key={school.abbr} className="flex items-center gap-3">
+                    <span className="w-14 shrink-0 text-xs text-paper/60">
+                      {school.abbr}
+                    </span>
+                    <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-paper/10">
+                      <div
+                        className={`h-full rounded-full ${school.bg}`}
+                        style={{ width: `${school.pct}%` }}
                       />
-                      <span className="text-xs text-paper/60">
-                        {school.abbr}
-                      </span>
-                      <span className="text-xs font-semibold text-paper">
-                        {school.students}
-                      </span>
                     </div>
-                  ))}
-                </div>
+                    <span className="w-9 shrink-0 text-right text-xs font-semibold text-paper">
+                      {school.students}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </Reveal>
@@ -118,10 +89,14 @@ export function StatsBento() {
           {STATS.map((stat, i) => (
             <Reveal key={stat.label} delay={(i + 1) * 60}>
               <div
-                className={`flex h-full flex-col justify-between rounded-3xl p-6 transition-transform duration-300 hover:-translate-y-1 sm:p-7 ${
+                className={`relative flex h-full flex-col justify-between overflow-hidden rounded-3xl p-6 transition-transform duration-300 hover:-translate-y-1 sm:p-7 ${
                   toneClasses[stat.tone]
                 }`}
               >
+                <LotusBloom
+                  tone="dark"
+                  className="pointer-events-none absolute -top-6 -right-6 h-28 w-28 rotate-12"
+                />
                 <div className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
                   {stat.value}
                 </div>
