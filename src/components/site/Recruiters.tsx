@@ -89,16 +89,17 @@ export function Recruiters() {
           <p className="mb-5 text-center text-xs font-semibold tracking-[0.14em] text-gold-600 uppercase">
             Recruiter categories
           </p>
-          <div className="mx-auto grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-            {CATEGORIES.map(({ label, icon: Icon }) => (
+          <div className="mx-auto grid max-w-4xl grid-cols-2 divide-x divide-y divide-mist-200 overflow-hidden rounded-3xl border border-mist-200 sm:grid-cols-3 lg:grid-cols-6 lg:divide-y-0">
+            {CATEGORIES.map(({ label, icon: Icon }, i) => (
               <div
                 key={label}
-                className="group flex flex-col items-center gap-3 rounded-2xl border border-mist-200 bg-mist-50 px-4 py-6 text-center transition-colors duration-300 hover:bg-navy-700"
+                className="group flex flex-col items-center gap-2.5 px-4 py-7 text-center transition-colors duration-300 hover:bg-mist-50"
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-navy-700/[0.06] text-navy-700 transition-colors duration-300 group-hover:bg-gold-500/20 group-hover:text-gold-400">
-                  <Icon className="h-5 w-5" />
+                <span className="font-display text-[11px] font-semibold tracking-[0.1em] text-navy-700/25 tabular-nums">
+                  {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="text-sm font-semibold text-navy-700 transition-colors duration-300 group-hover:text-paper">
+                <Icon className="h-6 w-6 text-navy-700/55 transition-colors duration-300 group-hover:text-gold-500" />
+                <span className="text-sm font-semibold text-navy-700">
                   {label}
                 </span>
               </div>

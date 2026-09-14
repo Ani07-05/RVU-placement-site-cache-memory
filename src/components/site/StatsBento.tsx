@@ -1,29 +1,34 @@
 import type { ReactElement } from "react";
 import { Reveal } from "./Reveal";
 import {
-  BootiSprig,
-  CornerLotus,
-  DiyaGlow,
-  KolamKnot,
+  ChakraBloom,
+  DiyaBloom,
+  JaliGridBloom,
   LotusBloom,
-  StarburstMotif,
-  SunMedallion,
-  VineFlourish,
+  OctagramBloom,
+  PeacockFeatherBloom,
+  StarBloom,
+  StepTowerBloom,
 } from "./IndianMotifs";
 
 const STATS: {
   value: string;
   label: string;
   tone: "light" | "gold";
-  motif: (props: { tone: "dark" | "light"; className?: string }) => ReactElement;
+  rotate: number;
+  motif: (props: {
+    tone: "dark" | "light";
+    className?: string;
+    style?: React.CSSProperties;
+  }) => ReactElement;
 }[] = [
-  { value: "250+", label: "Recruiting organizations", tone: "light", motif: SunMedallion },
-  { value: "425+", label: "Placement offers made", tone: "light", motif: VineFlourish },
-  { value: "₹43.5L", label: "Highest compensation offered", tone: "gold", motif: StarburstMotif },
-  { value: "₹8L", label: "Average compensation offered", tone: "light", motif: KolamKnot },
-  { value: "₹4L", label: "Minimum campus compensation", tone: "light", motif: DiyaGlow },
-  { value: "~25%", label: "Students with multiple offers", tone: "light", motif: BootiSprig },
-  { value: "20", label: "Offers above ₹20 LPA", tone: "light", motif: CornerLotus },
+  { value: "250+", label: "Recruiting organizations", tone: "light", rotate: 8, motif: ChakraBloom },
+  { value: "425+", label: "Placement offers made", tone: "light", rotate: -10, motif: PeacockFeatherBloom },
+  { value: "₹43.5L", label: "Highest compensation offered", tone: "gold", rotate: 16, motif: StarBloom },
+  { value: "₹8L", label: "Average compensation offered", tone: "light", rotate: -14, motif: OctagramBloom },
+  { value: "₹4L", label: "Minimum campus compensation", tone: "light", rotate: 10, motif: DiyaBloom },
+  { value: "~25%", label: "Students with multiple offers", tone: "light", rotate: -6, motif: JaliGridBloom },
+  { value: "20", label: "Offers above ₹20 LPA", tone: "light", rotate: 14, motif: StepTowerBloom },
 ];
 
 const SCHOOL_BREAKDOWN = [
@@ -108,7 +113,8 @@ export function StatsBento() {
                 >
                   <Motif
                     tone="dark"
-                    className="pointer-events-none absolute -top-6 -right-6 h-24 w-24 rotate-12 sm:h-28 sm:w-28"
+                    className="pointer-events-none absolute -top-6 -right-6 h-24 w-24 sm:h-28 sm:w-28"
+                    style={{ transform: `rotate(${stat.rotate}deg)` }}
                   />
                   <div className="font-display text-2xl font-semibold tracking-tight sm:text-4xl">
                     {stat.value}

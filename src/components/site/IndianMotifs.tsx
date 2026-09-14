@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+
 type Tone = "dark" | "light";
 
 const TONE_STROKE: Record<Tone, string> = {
@@ -205,9 +207,11 @@ export function CornerLotus({
 export function LotusBloom({
   tone = "dark",
   className = "",
+  style,
 }: {
   tone?: Tone;
   className?: string;
+  style?: CSSProperties;
 }) {
   const outerPetals = Array.from({ length: 8 }, (_, i) => (
     <path
@@ -230,10 +234,262 @@ export function LotusBloom({
       viewBox="0 0 100 100"
       fill="currentColor"
       className={`${TONE_FILL[tone]} ${className}`}
+      style={style}
     >
       {outerPetals}
       {innerPetals}
       <circle cx="50" cy="50" r="7" />
+    </svg>
+  );
+}
+
+/**
+ * A filled diya — a boat-shaped oil-lamp base with a teardrop flame
+ * above it, a warm architectural counterpart to the floral blooms.
+ */
+export function DiyaBloom({
+  tone = "dark",
+  className = "",
+  style,
+}: {
+  tone?: Tone;
+  className?: string;
+  style?: CSSProperties;
+}) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 100 100"
+      fill="currentColor"
+      className={`${TONE_FILL[tone]} ${className}`}
+      style={style}
+    >
+      <path d="M8 56C8 56 28 70 50 70C72 70 92 56 92 56C89 78 71 94 50 94C29 94 11 78 8 56Z" />
+      <path d="M50 52C41 39 41 26 50 8C59 26 59 39 50 52Z" />
+    </svg>
+  );
+}
+
+/**
+ * A filled Ashoka-style chakra — a solid rim ring with straight
+ * spokes radiating from a hub, the true "wheel" reading distinct
+ * from the petal-based blooms.
+ */
+export function ChakraBloom({
+  tone = "dark",
+  className = "",
+  style,
+}: {
+  tone?: Tone;
+  className?: string;
+  style?: CSSProperties;
+}) {
+  const spokeCount = 16;
+  const spokes = Array.from({ length: spokeCount }, (_, i) => (
+    <rect
+      key={i}
+      x="47"
+      y="5"
+      width="6"
+      height="38"
+      rx="3"
+      transform={`rotate(${(360 / spokeCount) * i} 50 50)`}
+    />
+  ));
+
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 100 100"
+      fill="currentColor"
+      fillRule="evenodd"
+      className={`${TONE_FILL[tone]} ${className}`}
+      style={style}
+    >
+      <path d="M50 2a48 48 0 100 96 48 48 0 000-96zm0 12a36 36 0 110 72 36 36 0 010-72z" />
+      {spokes}
+      <circle cx="50" cy="50" r="10" />
+    </svg>
+  );
+}
+
+/**
+ * A filled jali lattice — a rectangular grid of diamond tiles, the
+ * pierced-screen vocabulary of a jharokha window. Tiled rather than
+ * radial, so it reads as a lattice, never a flower.
+ */
+export function JaliGridBloom({
+  tone = "dark",
+  className = "",
+  style,
+}: {
+  tone?: Tone;
+  className?: string;
+  style?: CSSProperties;
+}) {
+  const cols = 4;
+  const rows = 4;
+  const spacing = 22;
+  const size = 10;
+  const offset = 14;
+  const cells = [];
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const cx = offset + c * spacing;
+      const cy = offset + r * spacing;
+      cells.push(
+        <rect
+          key={`${r}-${c}`}
+          x={cx - size / 2}
+          y={cy - size / 2}
+          width={size}
+          height={size}
+          transform={`rotate(45 ${cx} ${cy})`}
+        />,
+      );
+    }
+  }
+
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 100 100"
+      fill="currentColor"
+      className={`${TONE_FILL[tone]} ${className}`}
+      style={style}
+    >
+      {cells}
+    </svg>
+  );
+}
+
+/**
+ * A filled gopuram tower — stacked rectangular tiers narrowing
+ * toward a peak, a temple-tower silhouette built from straight edges
+ * rather than any radial or rounded shape.
+ */
+export function StepTowerBloom({
+  tone = "dark",
+  className = "",
+  style,
+}: {
+  tone?: Tone;
+  className?: string;
+  style?: CSSProperties;
+}) {
+  const tiers = [82, 66, 50, 34, 18];
+  const tierHeight = 15;
+
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 100 100"
+      fill="currentColor"
+      className={`${TONE_FILL[tone]} ${className}`}
+      style={style}
+    >
+      {tiers.map((width, i) => (
+        <rect
+          key={i}
+          x={50 - width / 2}
+          y={4 + i * tierHeight}
+          width={width}
+          height={tierHeight - 2}
+        />
+      ))}
+    </svg>
+  );
+}
+
+/**
+ * A filled peacock feather — a teardrop plume with a layered "eye",
+ * a distinct decorative motif from the geometric and floral marks.
+ */
+export function PeacockFeatherBloom({
+  tone = "dark",
+  className = "",
+  style,
+}: {
+  tone?: Tone;
+  className?: string;
+  style?: CSSProperties;
+}) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 100 100"
+      fill="currentColor"
+      className={`${TONE_FILL[tone]} ${className}`}
+      style={style}
+    >
+      <path d="M50 96C50 96 32 70 32 44C32 22 41 8 50 2C59 8 68 22 68 44C68 70 50 96 50 96Z" />
+      <circle cx="50" cy="32" r="13" fillOpacity="0.45" />
+      <circle cx="50" cy="32" r="5.5" />
+    </svg>
+  );
+}
+
+/**
+ * A filled eight-point star bloom — solid points radiating from a
+ * shared centre, the ashtakona silhouette as a watermark instead of
+ * an outline.
+ */
+export function StarBloom({
+  tone = "dark",
+  className = "",
+  style,
+}: {
+  tone?: Tone;
+  className?: string;
+  style?: CSSProperties;
+}) {
+  const spikes = 8;
+  const outerR = 46;
+  const innerR = 20;
+  const points: string[] = [];
+  for (let i = 0; i < spikes * 2; i++) {
+    const r = i % 2 === 0 ? outerR : innerR;
+    const angle = (Math.PI / spikes) * i - Math.PI / 2;
+    points.push(`${50 + r * Math.cos(angle)},${50 + r * Math.sin(angle)}`);
+  }
+
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 100 100"
+      fill="currentColor"
+      className={`${TONE_FILL[tone]} ${className}`}
+      style={style}
+    >
+      <polygon points={points.join(" ")} />
+    </svg>
+  );
+}
+
+/**
+ * A filled octagram — two overlapping solid squares forming an
+ * eight-point Mughal jali star, flat-edged and geometric rather than
+ * the spiked ashtakona or any petal shape.
+ */
+export function OctagramBloom({
+  tone = "dark",
+  className = "",
+  style,
+}: {
+  tone?: Tone;
+  className?: string;
+  style?: CSSProperties;
+}) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 100 100"
+      fill="currentColor"
+      className={`${TONE_FILL[tone]} ${className}`}
+      style={style}
+    >
+      <rect x="18" y="18" width="64" height="64" />
+      <rect x="18" y="18" width="64" height="64" transform="rotate(45 50 50)" />
     </svg>
   );
 }
@@ -246,9 +502,11 @@ export function LotusBloom({
 export function PetalChakra({
   tone = "dark",
   className = "",
+  style,
 }: {
   tone?: Tone;
   className?: string;
+  style?: CSSProperties;
 }) {
   const outerCount = 14;
   const innerCount = 14;
@@ -273,6 +531,7 @@ export function PetalChakra({
       aria-hidden
       viewBox="0 0 100 100"
       className={`${TONE_FILL[tone]} ${className}`}
+      style={style}
     >
       <circle
         cx="50"
