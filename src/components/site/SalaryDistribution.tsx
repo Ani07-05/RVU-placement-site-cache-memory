@@ -14,7 +14,7 @@ export function SalaryDistribution() {
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
         <Reveal>
           <span className="text-xs font-semibold tracking-[0.14em] text-gold-600 uppercase">
-            Compensation
+            Salary distribution by offer
           </span>
           <h2 className="mt-4 font-display text-4xl leading-[1.08] font-semibold tracking-tight text-navy-700 sm:text-5xl">
             Where the offers land.

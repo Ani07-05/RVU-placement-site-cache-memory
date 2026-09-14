@@ -1,3 +1,4 @@
+import { AboutCAR } from "@/components/site/AboutCAR";
 import { CTASection } from "@/components/site/CTASection";
 import { Footer } from "@/components/site/Footer";
 import { Hero } from "@/components/site/Hero";
@@ -15,6 +16,7 @@ export default function Home() {
       <Navbar />
       <main className="flex flex-1 flex-col">
         <Hero />
+        <AboutCAR />
         <StatsBento />
         <WhyRecruit />
         <PlacementProcess />

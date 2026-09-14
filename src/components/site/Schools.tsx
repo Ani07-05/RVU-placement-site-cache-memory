@@ -18,9 +18,8 @@ const SCHOOLS: {
   name: string;
   total: number;
   icon: IconComponent;
-  ring: string;
+  color: string;
   ringSoft: string;
-  bar: string;
   courses: { name: string; students: number }[];
 }[] = [
   {
@@ -28,9 +27,8 @@ const SCHOOLS: {
     name: "School of Computer Science & Engineering",
     total: 737,
     icon: ChipIcon,
-    ring: "stroke-gold-500",
+    color: "#d3a957",
     ringSoft: "text-gold-500",
-    bar: "bg-gold-500",
     courses: [
       { name: "B.Tech (Hons.)", students: 547 },
       { name: "B.Sc (Hons.)", students: 172 },
@@ -42,9 +40,8 @@ const SCHOOLS: {
     name: "School of Economics & Business",
     total: 529,
     icon: BarsIcon,
-    ring: "stroke-navy-600",
+    color: "#32475d",
     ringSoft: "text-navy-600",
-    bar: "bg-navy-600",
     courses: [
       { name: "MBA", students: 177 },
       { name: "B.Com (Hons.)", students: 170 },
@@ -58,9 +55,8 @@ const SCHOOLS: {
     name: "School of Design & Innovation",
     total: 157,
     icon: CompassIcon,
-    ring: "stroke-gold-700",
+    color: "#b3894a",
     ringSoft: "text-gold-700",
-    bar: "bg-gold-700",
     courses: [
       { name: "B.Des (Hons.)", students: 123 },
       { name: "M.Des", students: 34 },
@@ -71,9 +67,8 @@ const SCHOOLS: {
     name: "School of Law",
     total: 105,
     icon: ScaleIcon,
-    ring: "stroke-navy-500",
+    color: "#45596b",
     ringSoft: "text-navy-500",
-    bar: "bg-navy-500",
     courses: [
       {
         name: "B.Sc (Hons.) – Criminology, Cyber Law & Forensic Sciences",
@@ -87,9 +82,8 @@ const SCHOOLS: {
     name: "School of Liberal Arts & Sciences",
     total: 59,
     icon: BookIcon,
-    ring: "stroke-gold-300",
-    ringSoft: "text-gold-300",
-    bar: "bg-gold-300",
+    color: "#d0a863",
+    ringSoft: "text-gold-600",
     courses: [
       { name: "B.Sc (Hons.) – Psychology", students: 30 },
       { name: "M.Sc – Psychology", students: 23 },
@@ -102,50 +96,54 @@ const SCHOOLS: {
     name: "School of Film, Media & Creative Arts",
     total: 4,
     icon: ClapperIcon,
-    ring: "stroke-navy-800",
+    color: "#1c2731",
     ringSoft: "text-navy-800",
-    bar: "bg-navy-800",
     courses: [{ name: "B.Sc (Hons.) – Filmmaking", students: 4 }],
   },
 ];
 
 const GRAND_TOTAL = SCHOOLS.reduce((sum, s) => sum + s.total, 0);
-const MAX_TOTAL = Math.max(...SCHOOLS.map((s) => s.total));
 
 const RING_R = 42;
 const RING_CIRCUMFERENCE = 2 * Math.PI * RING_R;
+const SEGMENT_OPACITY = [1, 0.72, 0.52, 0.36, 0.24];
+const SEGMENT_GAP = 0.006; // fraction of the circle left as a seam between courses
 
 function SchoolRing({
   school,
 }: {
   school: (typeof SCHOOLS)[number];
 }) {
-  const pct = school.total / MAX_TOTAL;
-  const offset = RING_CIRCUMFERENCE * (1 - pct);
   const Icon = school.icon;
+  const gapCount = school.courses.length > 1 ? school.courses.length : 0;
+  const usableFraction = 1 - gapCount * SEGMENT_GAP;
+
+  let cumulative = 0;
+  const segments = school.courses.map((course) => {
+    const frac = (course.students / school.total) * usableFraction;
+    const seg = { course, frac, start: cumulative };
+    cumulative += frac + SEGMENT_GAP;
+    return seg;
+  });
 
   return (
     <div className="relative flex h-24 w-24 shrink-0 items-center justify-center sm:h-28 sm:w-28">
       <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
-        <circle
-          cx="50"
-          cy="50"
-          r={RING_R}
-          fill="none"
-          strokeWidth="7"
-          className="stroke-mist-100"
-        />
-        <circle
-          cx="50"
-          cy="50"
-          r={RING_R}
-          fill="none"
-          strokeWidth="7"
-          strokeLinecap="round"
-          strokeDasharray={RING_CIRCUMFERENCE}
-          strokeDashoffset={offset}
-          className={`${school.ring} transition-[stroke-dashoffset] duration-700 ease-out`}
-        />
+        {segments.map((seg, i) => (
+          <circle
+            key={seg.course.name}
+            cx="50"
+            cy="50"
+            r={RING_R}
+            fill="none"
+            stroke={school.color}
+            strokeOpacity={SEGMENT_OPACITY[i % SEGMENT_OPACITY.length]}
+            strokeWidth="8"
+            strokeDasharray={`${seg.frac * RING_CIRCUMFERENCE} ${RING_CIRCUMFERENCE}`}
+            strokeDashoffset={-seg.start * RING_CIRCUMFERENCE}
+            className="transition-[stroke-dasharray] duration-700 ease-out"
+          />
+        ))}
       </svg>
       <div
         className={`absolute inset-0 flex flex-col items-center justify-center gap-0.5 ${school.ringSoft}`}
@@ -178,7 +176,8 @@ export function Schools() {
             <p className="mt-4 text-sm leading-relaxed text-ink-soft">
               {GRAND_TOTAL.toLocaleString("en-IN")} total students eligible
               for recruitment this season, across every course in every
-              school. Each ring fills relative to SoCSE, the largest.
+              school. Each ring is a full breakdown of that school&apos;s
+              courses — segments always add up to its total.
             </p>
           </div>
           <a
@@ -209,22 +208,24 @@ export function Schools() {
                 </div>
 
                 <div className="mt-6 flex flex-1 flex-col justify-end gap-2">
-                  {school.courses.map((course) => (
-                    <div key={course.name} className="flex flex-col gap-1">
-                      <div className="flex items-baseline justify-between gap-3 text-xs">
-                        <span className="text-ink-soft">{course.name}</span>
-                        <span className="shrink-0 font-semibold text-navy-700">
-                          {course.students}
-                        </span>
-                      </div>
-                      <div className="h-1.5 w-full overflow-hidden rounded-full bg-mist-100">
-                        <div
-                          className={`h-full rounded-full ${school.bar} transition-all duration-500`}
+                  {school.courses.map((course, ci) => (
+                    <div
+                      key={course.name}
+                      className="flex items-baseline justify-between gap-3 text-xs"
+                    >
+                      <span className="flex min-w-0 items-baseline gap-2 text-ink-soft">
+                        <span
+                          className="h-2 w-2 shrink-0 translate-y-[1px] rounded-full"
                           style={{
-                            width: `${(course.students / school.total) * 100}%`,
+                            backgroundColor: school.color,
+                            opacity: SEGMENT_OPACITY[ci % SEGMENT_OPACITY.length],
                           }}
                         />
-                      </div>
+                        <span className="truncate">{course.name}</span>
+                      </span>
+                      <span className="shrink-0 font-semibold text-navy-700">
+                        {course.students}
+                      </span>
                     </div>
                   ))}
                 </div>

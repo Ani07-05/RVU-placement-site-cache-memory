@@ -1,11 +1,11 @@
 import { EXTERNAL_LINK_PROPS, RVU_LINKS } from "@/lib/links";
 import { CustomVideoPlayer } from "./CustomVideoPlayer";
-import { RangoliMedallion } from "./IndianMotifs";
+import { PetalChakra } from "./IndianMotifs";
 
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-paper pt-8 pb-20 sm:pt-14 sm:pb-28 lg:pt-20 lg:pb-36">
-      <RangoliMedallion
+      <PetalChakra
         tone="dark"
         className="animate-chakra-spin pointer-events-none absolute -top-16 -right-20 h-72 w-72 opacity-70 lg:h-[24rem] lg:w-[24rem]"
       />

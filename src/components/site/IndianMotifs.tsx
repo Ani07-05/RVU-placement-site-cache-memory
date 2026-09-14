@@ -239,6 +239,58 @@ export function LotusBloom({
 }
 
 /**
+ * A spinning lotus-petal chakra — the same filled petal shape as
+ * LotusBloom, layered into two staggered rings around a hub, sized to
+ * read cleanly while rotating via .animate-chakra-spin.
+ */
+export function PetalChakra({
+  tone = "dark",
+  className = "",
+}: {
+  tone?: Tone;
+  className?: string;
+}) {
+  const outerCount = 14;
+  const innerCount = 14;
+  const outerPetals = Array.from({ length: outerCount }, (_, i) => (
+    <path
+      key={`outer-${i}`}
+      d="M50 3C60 17 60 31 50 41C40 31 40 17 50 3Z"
+      transform={`rotate(${(360 / outerCount) * i} 50 50)`}
+    />
+  ));
+  const innerPetals = Array.from({ length: innerCount }, (_, i) => (
+    <path
+      key={`inner-${i}`}
+      d="M50 19C56 27 56 35 50 41C44 35 44 27 50 19Z"
+      transform={`rotate(${(360 / innerCount) * i + 360 / innerCount / 2} 50 50)`}
+      opacity="0.55"
+    />
+  ));
+
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 100 100"
+      className={`${TONE_FILL[tone]} ${className}`}
+    >
+      <circle
+        cx="50"
+        cy="50"
+        r="47"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1"
+        opacity="0.6"
+      />
+      <g fill="currentColor">{outerPetals}</g>
+      <g fill="currentColor">{innerPetals}</g>
+      <circle cx="50" cy="50" r="6" fill="currentColor" />
+    </svg>
+  );
+}
+
+/**
  * A radiating sun medallion (surya) — concentric ring with straight
  * and flame-tipped rays alternating, evoking temple sun-carvings.
  */

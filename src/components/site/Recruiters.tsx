@@ -1,5 +1,22 @@
 import { EXTERNAL_LINK_PROPS, RVU_LINKS } from "@/lib/links";
 import { Reveal } from "./Reveal";
+import {
+  CodeBracketsIcon,
+  CoinStackIcon,
+  GlobeIcon,
+  HandshakeIcon,
+  RocketIcon,
+  TowerIcon,
+} from "./RecruiterIcons";
+
+const CATEGORIES = [
+  { label: "MNCs", icon: TowerIcon },
+  { label: "GCCs", icon: GlobeIcon },
+  { label: "Tech", icon: CodeBracketsIcon },
+  { label: "Consulting", icon: HandshakeIcon },
+  { label: "Financial", icon: CoinStackIcon },
+  { label: "Startups", icon: RocketIcon },
+];
 
 type Tile =
   | { type: "image"; file: string; name: string }
@@ -66,6 +83,27 @@ export function Recruiters() {
               <span className="text-xs text-ink-soft">{h.label}</span>
             </div>
           ))}
+        </Reveal>
+
+        <Reveal delay={110} className="mb-14">
+          <p className="mb-5 text-center text-xs font-semibold tracking-[0.14em] text-gold-600 uppercase">
+            Recruiter categories
+          </p>
+          <div className="mx-auto grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+            {CATEGORIES.map(({ label, icon: Icon }) => (
+              <div
+                key={label}
+                className="group flex flex-col items-center gap-3 rounded-2xl border border-mist-200 bg-mist-50 px-4 py-6 text-center transition-colors duration-300 hover:bg-navy-700"
+              >
+                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-navy-700/[0.06] text-navy-700 transition-colors duration-300 group-hover:bg-gold-500/20 group-hover:text-gold-400">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <span className="text-sm font-semibold text-navy-700 transition-colors duration-300 group-hover:text-paper">
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
         </Reveal>
 
         <Reveal delay={140}>
