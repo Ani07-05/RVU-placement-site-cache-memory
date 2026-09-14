@@ -69,11 +69,14 @@ const REASONS = [
 
 export function WhyRecruit() {
   return (
-    <section id="why-recruit" className="bg-mist-50 py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,20rem)_1fr] lg:gap-16">
+    <section id="why-recruit" className="bg-mist-50 py-24 lg:py-32">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,20rem)_1fr] lg:gap-20">
           <Reveal className="lg:sticky lg:top-28 lg:self-start">
-            <h2 className="font-display text-4xl leading-[1.05] font-extrabold tracking-tight text-navy-700 sm:text-5xl">
+            <span className="text-xs font-semibold tracking-[0.14em] text-gold-600 uppercase">
+              Why RVU
+            </span>
+            <h2 className="mt-4 font-display text-4xl leading-[1.08] font-semibold tracking-tight text-navy-700 sm:text-5xl">
               Why recruit at RV University.
             </h2>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-ink-soft">
@@ -82,15 +85,11 @@ export function WhyRecruit() {
             </p>
           </Reveal>
 
-          <div className="divide-y divide-mist-200 border-t border-mist-200">
+          <div className="flex flex-col gap-3">
             {REASONS.map((reason, i) => (
               <Reveal key={reason.title} delay={i * 70}>
-                <div className="group relative grid grid-cols-1 gap-4 overflow-hidden py-8 sm:grid-cols-[3rem_1fr] sm:gap-8">
-                  <span
-                    aria-hidden
-                    className="absolute top-0 left-0 h-full w-[3px] -translate-x-full bg-gold-500 transition-transform duration-300 ease-out group-hover:translate-x-0"
-                  />
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-navy-700/15 text-navy-700 transition-colors duration-300 group-hover:border-gold-500 group-hover:text-gold-600">
+                <div className="group relative grid grid-cols-1 gap-4 overflow-hidden rounded-2xl p-6 transition-colors duration-300 hover:bg-paper sm:grid-cols-[3rem_1fr] sm:gap-8 sm:p-8">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-navy-700/[0.05] text-navy-700 transition-colors duration-300 group-hover:bg-gold-500/15 group-hover:text-gold-600">
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
@@ -102,7 +101,7 @@ export function WhyRecruit() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-display text-2xl font-extrabold tracking-tight text-navy-700">
+                    <h3 className="font-display text-xl font-semibold tracking-tight text-navy-700">
                       {reason.title}
                     </h3>
                     <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink-soft">

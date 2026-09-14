@@ -12,11 +12,14 @@ const SCHOOLS = [
 
 export function Schools() {
   return (
-    <section id="schools" className="bg-paper py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+    <section id="schools" className="bg-paper py-24 lg:py-32">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <Reveal className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-xl">
-            <h2 className="font-display text-4xl leading-[1.05] font-extrabold tracking-tight text-navy-700 sm:text-5xl">
+            <span className="text-xs font-semibold tracking-[0.14em] text-gold-600 uppercase">
+              Schools
+            </span>
+            <h2 className="mt-4 font-display text-4xl leading-[1.08] font-semibold tracking-tight text-navy-700 sm:text-5xl">
               Schools eligible for recruitment.
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-ink-soft">
@@ -32,14 +35,14 @@ export function Schools() {
           </a>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {SCHOOLS.map((school, i) => (
             <Reveal key={school.name} delay={i * 60}>
-              <div className="flex h-full items-baseline justify-between gap-4 border border-dotted border-mist-200 bg-mist-50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/60 hover:bg-paper">
+              <div className="flex h-full items-baseline justify-between gap-4 rounded-2xl bg-mist-50 p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-paper hover:shadow-[0_24px_48px_-32px_rgba(35,48,57,0.25)]">
                 <span className="text-sm font-medium text-navy-700">
                   {school.name}
                 </span>
-                <span className="font-display shrink-0 text-lg font-extrabold text-gold-600">
+                <span className="font-display shrink-0 text-lg font-semibold text-gold-600">
                   {school.students}
                 </span>
               </div>

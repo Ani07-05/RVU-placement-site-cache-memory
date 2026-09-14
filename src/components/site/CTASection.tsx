@@ -1,14 +1,21 @@
 import { EXTERNAL_LINK_PROPS, RVU_LINKS } from "@/lib/links";
-import { GeometricBackground } from "./GeometricBackground";
+import { ArchCresting, RangoliMedallion } from "./IndianMotifs";
 
 export function CTASection() {
   return (
-    <section id="contact" className="relative overflow-hidden bg-paper py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="relative overflow-hidden rounded-4xl bg-navy-700 px-8 py-16 text-center text-paper sm:px-16">
-          <GeometricBackground variant="dark" />
+    <section id="contact" className="relative overflow-hidden bg-paper py-24 lg:py-32">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-navy-700 px-8 pt-16 pb-10 text-center text-paper sm:px-16 sm:pt-20">
+          <RangoliMedallion
+            tone="light"
+            className="pointer-events-none absolute -top-16 -left-20 h-72 w-72 opacity-60"
+          />
+          <RangoliMedallion
+            tone="light"
+            className="pointer-events-none absolute -right-20 -bottom-16 h-72 w-72 opacity-60"
+          />
           <div className="relative mx-auto max-w-2xl">
-            <h2 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
+            <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               Partner with RV University
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-navy-500 sm:text-base">
@@ -31,6 +38,10 @@ export function CTASection() {
                 Contact Placement Cell ↗
               </a>
             </div>
+          </div>
+
+          <div className="relative mt-14 -mb-10 sm:-mb-10">
+            <ArchCresting tone="light" className="opacity-90" />
           </div>
         </div>
       </div>

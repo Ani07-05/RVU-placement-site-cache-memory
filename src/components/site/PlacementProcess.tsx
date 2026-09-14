@@ -21,19 +21,22 @@ const RULES = [
 
 export function PlacementProcess() {
   return (
-    <section id="process" className="bg-paper py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <Reveal className="mb-14 max-w-3xl">
-          <h2 className="font-display text-4xl leading-[1.05] font-extrabold tracking-tight text-navy-700 sm:text-5xl">
+    <section id="process" className="bg-paper py-24 lg:py-32">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <Reveal className="mx-auto mb-16 max-w-2xl text-center">
+          <span className="text-xs font-semibold tracking-[0.14em] text-gold-600 uppercase">
+            Process
+          </span>
+          <h2 className="mt-4 font-display text-4xl leading-[1.08] font-semibold tracking-tight text-navy-700 sm:text-5xl">
             Rules &amp; regulations.
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {RULES.map((rule, i) => (
             <Reveal key={rule.title} delay={i * 90}>
-              <div className="h-full border border-dotted border-mist-200 bg-mist-50 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/60 hover:bg-paper">
-                <h3 className="font-display text-lg font-extrabold text-navy-700">
+              <div className="h-full rounded-3xl bg-mist-50 p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-paper hover:shadow-[0_24px_48px_-32px_rgba(35,48,57,0.25)]">
+                <h3 className="font-display text-lg font-semibold text-navy-700">
                   {rule.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-ink-soft">

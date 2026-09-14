@@ -1,4 +1,5 @@
 import { EXTERNAL_LINK_PROPS, RVU_LINKS } from "@/lib/links";
+import { ArchCresting } from "./IndianMotifs";
 
 const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
   {
@@ -41,12 +42,14 @@ const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-mist-200 bg-mist-50">
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+    <footer className="bg-mist-50">
+      <ArchCresting tone="dark" className="opacity-80" />
+
+      <div className="mx-auto max-w-6xl px-6 pt-8 pb-16 lg:px-8 lg:pt-10">
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
           {COLUMNS.map((column) => (
             <div key={column.title}>
-              <h3 className="font-display text-sm font-extrabold text-navy-700">
+              <h3 className="font-display text-sm font-semibold text-navy-700">
                 {column.title}
               </h3>
               <ul className="mt-4 flex flex-col gap-3">
@@ -66,8 +69,14 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-mist-200 pt-8 text-xs text-ink-soft sm:flex-row sm:items-center sm:justify-between">
-          <p>
+        <div className="mt-16 flex flex-col items-center gap-6 border-t border-mist-200 pt-14 text-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/brand/rvu-logo.svg"
+            alt="RV University"
+            className="h-14 w-auto opacity-90 sm:h-16"
+          />
+          <p className="max-w-xl text-xs leading-relaxed text-ink-soft">
             Unofficial concept redesign of the RV University placements page.
             All official information, forms and actions live at{" "}
             <a
@@ -82,7 +91,7 @@ export function Footer() {
           <a
             href={RVU_LINKS.home}
             {...EXTERNAL_LINK_PROPS}
-            className="font-medium text-navy-700"
+            className="text-xs font-medium text-navy-700"
           >
             rvu.edu.in ↗
           </a>

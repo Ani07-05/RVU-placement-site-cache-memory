@@ -34,29 +34,31 @@ const DONUT_SEGMENTS = SCHOOL_BREAKDOWN.map((school) => {
 });
 
 const toneClasses: Record<string, string> = {
-  light: "border border-dotted border-mist-200 bg-paper text-ink",
+  light: "bg-mist-50 text-navy-700",
   gold: "bg-gold-500 text-navy-950",
 };
 
 export function StatsBento() {
   return (
-    <section className="relative bg-mist-50 py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <Reveal className="mb-12 max-w-3xl">
-          <h2 className="font-display text-4xl leading-[1.05] font-extrabold tracking-tight text-navy-700 sm:text-5xl">
-            Numbers that speak
-            <br className="hidden sm:block" /> for our graduates.
+    <section className="bg-paper py-24 lg:py-32">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <Reveal className="mx-auto mb-16 max-w-2xl text-center">
+          <span className="text-xs font-semibold tracking-[0.14em] text-gold-600 uppercase">
+            By the numbers
+          </span>
+          <h2 className="mt-4 font-display text-4xl leading-[1.08] font-semibold tracking-tight text-navy-700 sm:text-5xl">
+            Numbers that speak for our graduates.
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4">
           <Reveal className="col-span-2 lg:col-span-2 lg:row-span-2">
-            <div className="noise-surface noise-surface-dark flex h-full flex-col gap-6 bg-navy-700 p-6 text-paper transition-transform duration-300 hover:-translate-y-1 sm:p-8">
+            <div className="flex h-full flex-col gap-6 rounded-3xl bg-navy-700 p-7 text-paper transition-transform duration-300 hover:-translate-y-1 sm:p-9">
               <div>
-                <div className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
+                <div className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">
                   1,608
                 </div>
-                <div className="mt-3 text-sm opacity-80 sm:text-base">
+                <div className="mt-3 text-sm text-paper/70 sm:text-base">
                   Students eligible for recruitment this season
                 </div>
               </div>
@@ -73,7 +75,7 @@ export function StatsBento() {
                     fill="none"
                     className="text-paper/10"
                     stroke="currentColor"
-                    strokeWidth="4"
+                    strokeWidth="3"
                   />
                   {DONUT_SEGMENTS.map((school) => (
                     <circle
@@ -84,7 +86,7 @@ export function StatsBento() {
                       fill="none"
                       className={school.color}
                       stroke="currentColor"
-                      strokeWidth="4"
+                      strokeWidth="3"
                       strokeLinecap="butt"
                       pathLength={100}
                       strokeDasharray={`${school.pct} ${100 - school.pct}`}
@@ -93,14 +95,14 @@ export function StatsBento() {
                   ))}
                 </svg>
 
-                <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
+                <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                   {SCHOOL_BREAKDOWN.map((school) => (
                     <div key={school.abbr} className="flex items-center gap-2">
                       <span
-                        className={`h-2 w-2 shrink-0 rounded-full bg-current ${school.color}`}
+                        className={`h-1.5 w-1.5 shrink-0 rounded-full bg-current ${school.color}`}
                         aria-hidden
                       />
-                      <span className="text-xs text-paper/70">
+                      <span className="text-xs text-paper/60">
                         {school.abbr}
                       </span>
                       <span className="text-xs font-semibold text-paper">
@@ -116,16 +118,14 @@ export function StatsBento() {
           {STATS.map((stat, i) => (
             <Reveal key={stat.label} delay={(i + 1) * 60}>
               <div
-                className={`flex h-full flex-col justify-between p-6 transition-transform duration-300 hover:-translate-y-1 sm:p-8 ${
+                className={`flex h-full flex-col justify-between rounded-3xl p-6 transition-transform duration-300 hover:-translate-y-1 sm:p-7 ${
                   toneClasses[stat.tone]
                 }`}
               >
-                <div className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
+                <div className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
                   {stat.value}
                 </div>
-                <div className="mt-4 text-sm opacity-80 sm:text-base">
-                  {stat.label}
-                </div>
+                <div className="mt-4 text-sm opacity-75">{stat.label}</div>
               </div>
             </Reveal>
           ))}
