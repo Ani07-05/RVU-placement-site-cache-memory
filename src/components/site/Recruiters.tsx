@@ -1,4 +1,5 @@
-import { EXTERNAL_LINK_PROPS, RVU_LINKS } from "@/lib/links";
+import Link from "next/link";
+import { RVU_LINKS } from "@/lib/links";
 import { Reveal } from "./Reveal";
 import {
   CodeBracketsIcon,
@@ -152,13 +153,12 @@ export function Recruiters() {
         </Reveal>
 
         <Reveal delay={200} className="mt-12 flex justify-center">
-          <a
-            href={RVU_LINKS.recruitForm}
-            {...EXTERNAL_LINK_PROPS}
+          <Link
+            href={RVU_LINKS.recruiterRegister}
             className="inline-flex w-fit items-center gap-2 rounded-full bg-navy-700 px-7 py-3.5 text-sm font-semibold text-paper shadow-lg shadow-navy-700/15 transition-transform hover:scale-[1.02] hover:bg-navy-600"
           >
-            Become a recruiting partner ↗
-          </a>
+            Become a recruiting partner
+          </Link>
         </Reveal>
       </div>
     </section>

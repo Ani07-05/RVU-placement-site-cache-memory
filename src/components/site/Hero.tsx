@@ -1,4 +1,5 @@
-import { EXTERNAL_LINK_PROPS, RVU_LINKS } from "@/lib/links";
+import Link from "next/link";
+import { RVU_LINKS } from "@/lib/links";
 import { CustomVideoPlayer } from "./CustomVideoPlayer";
 import { PetalChakra } from "./IndianMotifs";
 
@@ -33,13 +34,12 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-              <a
-                href={RVU_LINKS.recruitForm}
-                {...EXTERNAL_LINK_PROPS}
+              <Link
+                href={RVU_LINKS.recruiterRegister}
                 className="w-fit rounded-full bg-navy-700 px-7 py-3.5 text-center text-sm font-semibold text-paper shadow-lg shadow-navy-700/15 transition-transform hover:scale-[1.02] hover:bg-navy-600"
               >
-                Recruit Now ↗
-              </a>
+                Recruit Now
+              </Link>
               <a
                 href="#recruiters"
                 className="w-fit rounded-full border border-navy-700/15 px-7 py-3.5 text-center text-sm font-semibold text-navy-700 transition-colors hover:bg-navy-700/[0.04]"

@@ -42,7 +42,7 @@ const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
 export function Footer() {
   return (
     <footer className="bg-mist-50">
-      <div className="mx-auto max-w-6xl px-6 pt-8 pb-16 lg:px-8 lg:pt-10">
+      <div className="mx-auto max-w-6xl px-6 pt-8 lg:px-8 lg:pt-10">
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
           {COLUMNS.map((column) => (
             <div key={column.title}>
@@ -74,12 +74,12 @@ export function Footer() {
             className="relative z-10 h-24 w-auto shrink-0 sm:h-36 lg:h-44"
           />
 
-          <div className="mt-6 flex h-14 w-full items-start justify-center gap-6 overflow-hidden sm:mt-8 sm:h-20 sm:gap-16 lg:h-24">
+          <div className="mt-6 flex h-16 w-full items-start justify-center gap-6 overflow-hidden sm:mt-8 sm:h-20 sm:gap-16 lg:h-28 xl:h-32">
             <span
               aria-hidden
               className="font-display font-bold tracking-tight select-none"
               style={{
-                fontSize: "clamp(4rem, 9vw, 7rem)",
+                fontSize: "clamp(6rem, 16vw, 12rem)",
                 lineHeight: 1,
                 backgroundImage:
                   "radial-gradient(circle at 28% 24%, rgba(255,255,255,0.55), transparent 42%), linear-gradient(140deg, var(--color-gold-300) 0%, var(--color-gold-600) 45%, var(--color-navy-600) 100%)",
@@ -95,7 +95,7 @@ export function Footer() {
               aria-hidden
               className="font-display font-bold tracking-tight select-none"
               style={{
-                fontSize: "clamp(4rem, 9vw, 7rem)",
+                fontSize: "clamp(6rem, 16vw, 12rem)",
                 lineHeight: 1,
                 backgroundImage:
                   "radial-gradient(circle at 72% 24%, rgba(255,255,255,0.55), transparent 42%), linear-gradient(220deg, var(--color-gold-300) 0%, var(--color-gold-600) 45%, var(--color-navy-600) 100%)",

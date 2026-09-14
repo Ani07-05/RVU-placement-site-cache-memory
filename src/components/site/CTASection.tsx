@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { EXTERNAL_LINK_PROPS, RVU_LINKS } from "@/lib/links";
 import { ArchCresting, RangoliMedallion } from "./IndianMotifs";
 
@@ -19,13 +20,12 @@ export function CTASection() {
               the Career Development and Corporate Relations office.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-              <a
-                href={RVU_LINKS.recruitForm}
-                {...EXTERNAL_LINK_PROPS}
+              <Link
+                href={RVU_LINKS.recruiterRegister}
                 className="rounded-full bg-gold-500 px-7 py-3.5 text-sm font-semibold text-navy-950 shadow-lg shadow-gold-500/20 transition-transform hover:scale-[1.03] hover:bg-gold-400"
               >
-                Recruit Now ↗
-              </a>
+                Recruit Now
+              </Link>
               <a
                 href={RVU_LINKS.contact}
                 {...EXTERNAL_LINK_PROPS}

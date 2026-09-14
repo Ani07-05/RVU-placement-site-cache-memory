@@ -1,7 +1,9 @@
 /**
  * Every outbound link on this site points to the real, official RVU page.
- * This is a static, unofficial visual redesign concept. It has no forms,
- * accounts, or backend of its own, so every action hands off to rvu.edu.in.
+ * This is a static, unofficial visual redesign concept. It has no accounts
+ * or backend of its own, so most actions hand off to rvu.edu.in — the one
+ * exception is `recruiterRegister`, an in-site static page (no submission
+ * wiring) that mirrors the recruiter registration form's fields.
  */
 export const RVU_LINKS = {
   home: "https://rvu.edu.in/",
@@ -23,7 +25,7 @@ export const RVU_LINKS = {
   universityGrievance: "https://rvu.edu.in/university-grievance-committees/",
   antiRagging: "https://rvu.edu.in/anti-ragging-helpline/",
   faculty: "https://rvu.edu.in/faculty/",
-  recruitForm: "https://forms.gle/4cPjVjPosbaw8b9QA",
+  recruiterRegister: "/recruiters/register",
 } as const;
 
 export const EXTERNAL_LINK_PROPS = {

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { EXTERNAL_LINK_PROPS, RVU_LINKS } from "@/lib/links";
 
 const NAV_ITEMS = [
@@ -15,6 +16,9 @@ const NAV_ITEMS = [
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const onHome = pathname === "/";
+  const homeAnchor = (hash: string) => (onHome ? hash : `/${hash}`);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -33,7 +37,7 @@ export function Navbar() {
         }`}
       >
         <Link
-          href="#top"
+          href={homeAnchor("#top")}
           className="flex items-center gap-3"
           onClick={() => setOpen(false)}
         >
@@ -53,7 +57,7 @@ export function Navbar() {
           {NAV_ITEMS.map((item) => (
             <li key={item.href}>
               <a
-                href={item.href}
+                href={homeAnchor(item.href)}
                 className="rounded-full px-3.5 py-2 transition-colors hover:bg-navy-700/[0.05] hover:text-navy-700"
               >
                 {item.label}
@@ -70,13 +74,12 @@ export function Navbar() {
           >
             Official page ↗
           </a>
-          <a
-            href={RVU_LINKS.recruitForm}
-            {...EXTERNAL_LINK_PROPS}
+          <Link
+            href={RVU_LINKS.recruiterRegister}
             className="hidden rounded-full bg-navy-700 px-5 py-2.5 text-[13px] font-semibold text-paper transition-colors hover:bg-navy-600 sm:inline-flex"
           >
             Recruit Now
-          </a>
+          </Link>
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -115,7 +118,7 @@ export function Navbar() {
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <a
-                  href={item.href}
+                  href={homeAnchor(item.href)}
                   onClick={() => setOpen(false)}
                   className="block rounded-xl px-4 py-2.5 transition-colors hover:bg-mist-50 hover:text-navy-700"
                 >
@@ -124,13 +127,13 @@ export function Navbar() {
               </li>
             ))}
             <li className="mt-2 flex flex-col gap-2 px-2 pb-1">
-              <a
-                href={RVU_LINKS.recruitForm}
-                {...EXTERNAL_LINK_PROPS}
+              <Link
+                href={RVU_LINKS.recruiterRegister}
+                onClick={() => setOpen(false)}
                 className="rounded-full bg-navy-700 px-5 py-2.5 text-center text-sm font-semibold text-paper"
               >
                 Recruit Now
-              </a>
+              </Link>
               <a
                 href={RVU_LINKS.placements}
                 {...EXTERNAL_LINK_PROPS}
