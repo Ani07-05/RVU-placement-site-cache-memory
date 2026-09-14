@@ -41,6 +41,19 @@ const RECRUITERS: Tile[] = [
   { type: "image", file: "logo16.png", name: "Progress ShareFile" },
   { type: "image", file: "logo2.png", name: "Tata Consultancy Services" },
   { type: "image", file: "logo1.png", name: "Infosys" },
+  { type: "image", file: "arcticwolf.png", name: "Arctic Wolf" },
+  { type: "image", file: "sharechat.jpg", name: "ShareChat" },
+  { type: "image", file: "ringcentral.svg", name: "RingCentral" },
+  { type: "image", file: "everpure.png", name: "Everpure" },
+  { type: "image", file: "kinaxis.svg", name: "Kinaxis" },
+  { type: "image", file: "coupa.svg", name: "Coupa" },
+  { type: "image", file: "juspay.svg", name: "Juspay" },
+  { type: "image", file: "dover.svg", name: "Dover" },
+  { type: "image", file: "bakerhughes.svg", name: "Baker Hughes" },
+  { type: "image", file: "zs.png", name: "ZS Associates" },
+  { type: "image", file: "societegenerale.svg", name: "Societe Generale" },
+  { type: "image", file: "msd.svg", name: "MSD Global" },
+  { type: "image", file: "docusign.svg", name: "DocuSign" },
 ];
 
 const HIGHLIGHTS = [
@@ -95,9 +108,6 @@ export function Recruiters() {
                 key={label}
                 className="group flex flex-col items-center gap-2.5 px-4 py-7 text-center transition-colors duration-300 hover:bg-mist-50"
               >
-                <span className="font-display text-[11px] font-semibold tracking-[0.1em] text-navy-700/25 tabular-nums">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
                 <Icon className="h-6 w-6 text-navy-700/55 transition-colors duration-300 group-hover:text-gold-500" />
                 <span className="text-sm font-semibold text-navy-700">
                   {label}
