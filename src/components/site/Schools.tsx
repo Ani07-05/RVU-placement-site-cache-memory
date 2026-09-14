@@ -1,20 +1,36 @@
+import type { ReactElement } from "react";
 import { EXTERNAL_LINK_PROPS, RVU_LINKS } from "@/lib/links";
 import { JaliOverlay, PaisleyRow } from "./IndianMotifs";
+import {
+  BarsIcon,
+  BookIcon,
+  ChipIcon,
+  ClapperIcon,
+  CompassIcon,
+  ScaleIcon,
+} from "./SchoolIcons";
 import { Reveal } from "./Reveal";
 
-const SEGMENT_TONES = [
-  "bg-gold-600",
-  "bg-navy-700",
-  "bg-gold-300",
-  "bg-navy-500",
-  "bg-gold-500",
-];
+type IconComponent = (props: { className?: string }) => ReactElement;
 
-const SCHOOLS = [
+const SCHOOLS: {
+  code: string;
+  name: string;
+  total: number;
+  icon: IconComponent;
+  ring: string;
+  ringSoft: string;
+  bar: string;
+  courses: { name: string; students: number }[];
+}[] = [
   {
     code: "SoCSE",
     name: "School of Computer Science & Engineering",
     total: 737,
+    icon: ChipIcon,
+    ring: "stroke-gold-500",
+    ringSoft: "text-gold-500",
+    bar: "bg-gold-500",
     courses: [
       { name: "B.Tech (Hons.)", students: 547 },
       { name: "B.Sc (Hons.)", students: 172 },
@@ -25,6 +41,10 @@ const SCHOOLS = [
     code: "SoEB",
     name: "School of Economics & Business",
     total: 529,
+    icon: BarsIcon,
+    ring: "stroke-navy-600",
+    ringSoft: "text-navy-600",
+    bar: "bg-navy-600",
     courses: [
       { name: "MBA", students: 177 },
       { name: "B.Com (Hons.)", students: 170 },
@@ -37,6 +57,10 @@ const SCHOOLS = [
     code: "SDI",
     name: "School of Design & Innovation",
     total: 157,
+    icon: CompassIcon,
+    ring: "stroke-gold-700",
+    ringSoft: "text-gold-700",
+    bar: "bg-gold-700",
     courses: [
       { name: "B.Des (Hons.)", students: 123 },
       { name: "M.Des", students: 34 },
@@ -46,6 +70,10 @@ const SCHOOLS = [
     code: "SoL",
     name: "School of Law",
     total: 105,
+    icon: ScaleIcon,
+    ring: "stroke-navy-500",
+    ringSoft: "text-navy-500",
+    bar: "bg-navy-500",
     courses: [
       {
         name: "B.Sc (Hons.) – Criminology, Cyber Law & Forensic Sciences",
@@ -58,6 +86,10 @@ const SCHOOLS = [
     code: "SoLAS",
     name: "School of Liberal Arts & Sciences",
     total: 59,
+    icon: BookIcon,
+    ring: "stroke-gold-300",
+    ringSoft: "text-gold-300",
+    bar: "bg-gold-300",
     courses: [
       { name: "B.Sc (Hons.) – Psychology", students: 30 },
       { name: "M.Sc – Psychology", students: 23 },
@@ -69,11 +101,63 @@ const SCHOOLS = [
     code: "SoFMCA",
     name: "School of Film, Media & Creative Arts",
     total: 4,
+    icon: ClapperIcon,
+    ring: "stroke-navy-800",
+    ringSoft: "text-navy-800",
+    bar: "bg-navy-800",
     courses: [{ name: "B.Sc (Hons.) – Filmmaking", students: 4 }],
   },
 ];
 
+const GRAND_TOTAL = SCHOOLS.reduce((sum, s) => sum + s.total, 0);
 const MAX_TOTAL = Math.max(...SCHOOLS.map((s) => s.total));
+
+const RING_R = 42;
+const RING_CIRCUMFERENCE = 2 * Math.PI * RING_R;
+
+function SchoolRing({
+  school,
+}: {
+  school: (typeof SCHOOLS)[number];
+}) {
+  const pct = school.total / MAX_TOTAL;
+  const offset = RING_CIRCUMFERENCE * (1 - pct);
+  const Icon = school.icon;
+
+  return (
+    <div className="relative flex h-24 w-24 shrink-0 items-center justify-center sm:h-28 sm:w-28">
+      <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
+        <circle
+          cx="50"
+          cy="50"
+          r={RING_R}
+          fill="none"
+          strokeWidth="7"
+          className="stroke-mist-100"
+        />
+        <circle
+          cx="50"
+          cy="50"
+          r={RING_R}
+          fill="none"
+          strokeWidth="7"
+          strokeLinecap="round"
+          strokeDasharray={RING_CIRCUMFERENCE}
+          strokeDashoffset={offset}
+          className={`${school.ring} transition-[stroke-dashoffset] duration-700 ease-out`}
+        />
+      </svg>
+      <div
+        className={`absolute inset-0 flex flex-col items-center justify-center gap-0.5 ${school.ringSoft}`}
+      >
+        <Icon className="h-6 w-6 sm:h-7 sm:w-7" />
+        <span className="font-display text-base font-semibold text-navy-700 sm:text-lg">
+          {school.total}
+        </span>
+      </div>
+    </div>
+  );
+}
 
 export function Schools() {
   return (
@@ -92,10 +176,9 @@ export function Schools() {
               Schools eligible for recruitment.
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-ink-soft">
-              1,608 total students eligible for recruitment this season,
-              across every course in every school. Bar length shows each
-              school&apos;s size relative to SoCSE, the largest; each
-              segment is one course.
+              {GRAND_TOTAL.toLocaleString("en-IN")} total students eligible
+              for recruitment this season, across every course in every
+              school. Each ring fills relative to SoCSE, the largest.
             </p>
           </div>
           <a
@@ -109,58 +192,40 @@ export function Schools() {
 
         <PaisleyRow tone="dark" className="mb-10 opacity-50" />
 
-        <div className="space-y-8">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {SCHOOLS.map((school, i) => (
-            <Reveal key={school.code} delay={i * 70}>
-              <div className="group">
-                <div className="mb-2.5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <div className="flex items-baseline gap-2.5">
+            <Reveal key={school.code} delay={i * 70} className="h-full">
+              <div className="group flex h-full flex-col rounded-3xl border border-mist-200 bg-mist-50/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-paper hover:shadow-[0_24px_48px_-32px_rgba(35,48,57,0.25)] sm:p-7">
+                <div className="flex items-start gap-5">
+                  <SchoolRing school={school} />
+                  <div className="min-w-0 pt-1">
                     <span className="font-display text-sm font-semibold tracking-wide text-navy-700 uppercase">
                       {school.code}
                     </span>
-                    <span className="text-sm text-ink-soft">
+                    <p className="mt-1 text-sm leading-snug text-ink-soft">
                       {school.name}
-                    </span>
+                    </p>
                   </div>
-                  <span className="font-display text-lg font-semibold text-gold-600">
-                    {school.total}
-                  </span>
                 </div>
 
-                <div
-                  className="flex h-9 w-full gap-[2px] overflow-hidden rounded-lg bg-mist-100 transition-all duration-500"
-                  style={{ width: `${(school.total / MAX_TOTAL) * 100}%` }}
-                >
-                  {school.courses.map((course, ci) => (
-                    <div
-                      key={course.name}
-                      title={`${course.name} — ${course.students} students`}
-                      className={`h-full ${
-                        SEGMENT_TONES[ci % SEGMENT_TONES.length]
-                      } transition-opacity duration-300 hover:opacity-80`}
-                      style={{
-                        width: `${(course.students / school.total) * 100}%`,
-                      }}
-                    />
-                  ))}
-                </div>
-
-                <div className="mt-2.5 flex flex-wrap gap-x-4 gap-y-1">
-                  {school.courses.map((course, ci) => (
-                    <span
-                      key={course.name}
-                      className="flex items-center gap-1.5 text-xs text-ink-soft"
-                    >
-                      <span
-                        className={`h-2 w-2 shrink-0 rounded-[2px] ${
-                          SEGMENT_TONES[ci % SEGMENT_TONES.length]
-                        }`}
-                      />
-                      {course.name}
-                      <span className="font-semibold text-navy-700">
-                        {course.students}
-                      </span>
-                    </span>
+                <div className="mt-6 flex flex-1 flex-col justify-end gap-2">
+                  {school.courses.map((course) => (
+                    <div key={course.name} className="flex flex-col gap-1">
+                      <div className="flex items-baseline justify-between gap-3 text-xs">
+                        <span className="text-ink-soft">{course.name}</span>
+                        <span className="shrink-0 font-semibold text-navy-700">
+                          {course.students}
+                        </span>
+                      </div>
+                      <div className="h-1.5 w-full overflow-hidden rounded-full bg-mist-100">
+                        <div
+                          className={`h-full rounded-full ${school.bar} transition-all duration-500`}
+                          style={{
+                            width: `${(course.students / school.total) * 100}%`,
+                          }}
+                        />
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>

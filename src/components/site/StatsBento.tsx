@@ -1,18 +1,29 @@
+import type { ReactElement } from "react";
 import { Reveal } from "./Reveal";
-import { LotusBloom } from "./IndianMotifs";
+import {
+  BootiSprig,
+  CornerLotus,
+  DiyaGlow,
+  KolamKnot,
+  LotusBloom,
+  StarburstMotif,
+  SunMedallion,
+  VineFlourish,
+} from "./IndianMotifs";
 
 const STATS: {
   value: string;
   label: string;
   tone: "light" | "gold";
+  motif: (props: { tone: "dark" | "light"; className?: string }) => ReactElement;
 }[] = [
-  { value: "250+", label: "Recruiting organizations", tone: "light" },
-  { value: "425+", label: "Placement offers made", tone: "light" },
-  { value: "₹43.5L", label: "Highest compensation offered", tone: "gold" },
-  { value: "₹8L", label: "Average compensation offered", tone: "light" },
-  { value: "₹4L", label: "Minimum campus compensation", tone: "light" },
-  { value: "~25%", label: "Students with multiple offers", tone: "light" },
-  { value: "20", label: "Offers above ₹20 LPA", tone: "light" },
+  { value: "250+", label: "Recruiting organizations", tone: "light", motif: SunMedallion },
+  { value: "425+", label: "Placement offers made", tone: "light", motif: VineFlourish },
+  { value: "₹43.5L", label: "Highest compensation offered", tone: "gold", motif: StarburstMotif },
+  { value: "₹8L", label: "Average compensation offered", tone: "light", motif: KolamKnot },
+  { value: "₹4L", label: "Minimum campus compensation", tone: "light", motif: DiyaGlow },
+  { value: "~25%", label: "Students with multiple offers", tone: "light", motif: BootiSprig },
+  { value: "20", label: "Offers above ₹20 LPA", tone: "light", motif: CornerLotus },
 ];
 
 const SCHOOL_BREAKDOWN = [
@@ -51,7 +62,7 @@ export function StatsBento() {
 
         <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4">
           <Reveal className="col-span-2 lg:col-span-2 lg:row-span-2">
-            <div className="relative flex h-full flex-col gap-6 overflow-hidden rounded-3xl bg-navy-700 p-7 text-paper transition-transform duration-300 hover:-translate-y-1 sm:p-9">
+            <div className="relative flex h-full flex-col gap-6 overflow-hidden rounded-3xl bg-navy-700 p-5 text-paper transition-transform duration-300 hover:-translate-y-1 sm:p-9">
               <LotusBloom
                 tone="light"
                 className="pointer-events-none absolute -top-8 -right-8 h-40 w-40 rotate-12"
@@ -86,24 +97,27 @@ export function StatsBento() {
             </div>
           </Reveal>
 
-          {STATS.map((stat, i) => (
-            <Reveal key={stat.label} delay={(i + 1) * 60}>
-              <div
-                className={`relative flex h-full flex-col justify-between overflow-hidden rounded-3xl p-6 transition-transform duration-300 hover:-translate-y-1 sm:p-7 ${
-                  toneClasses[stat.tone]
-                }`}
-              >
-                <LotusBloom
-                  tone="dark"
-                  className="pointer-events-none absolute -top-6 -right-6 h-28 w-28 rotate-12"
-                />
-                <div className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-                  {stat.value}
+          {STATS.map((stat, i) => {
+            const Motif = stat.motif;
+            return (
+              <Reveal key={stat.label} delay={(i + 1) * 60}>
+                <div
+                  className={`relative flex h-full flex-col justify-between overflow-hidden rounded-3xl p-5 transition-transform duration-300 hover:-translate-y-1 sm:p-7 ${
+                    toneClasses[stat.tone]
+                  }`}
+                >
+                  <Motif
+                    tone="dark"
+                    className="pointer-events-none absolute -top-6 -right-6 h-24 w-24 rotate-12 sm:h-28 sm:w-28"
+                  />
+                  <div className="font-display text-2xl font-semibold tracking-tight sm:text-4xl">
+                    {stat.value}
+                  </div>
+                  <div className="mt-4 text-xs opacity-75 sm:text-sm">{stat.label}</div>
                 </div>
-                <div className="mt-4 text-sm opacity-75">{stat.label}</div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

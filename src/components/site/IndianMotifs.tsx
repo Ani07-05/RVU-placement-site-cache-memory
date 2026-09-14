@@ -239,6 +239,236 @@ export function LotusBloom({
 }
 
 /**
+ * A radiating sun medallion (surya) — concentric ring with straight
+ * and flame-tipped rays alternating, evoking temple sun-carvings.
+ */
+export function SunMedallion({
+  tone = "dark",
+  className = "",
+}: {
+  tone?: Tone;
+  className?: string;
+}) {
+  const rayCount = 16;
+  const rays = Array.from({ length: rayCount }, (_, i) => {
+    const angle = (360 / rayCount) * i;
+    const long = i % 2 === 0;
+    return (
+      <line
+        key={i}
+        x1="50"
+        y1={50 - 30}
+        x2="50"
+        y2={50 - (long ? 47 : 40)}
+        transform={`rotate(${angle} 50 50)`}
+        stroke="currentColor"
+        strokeWidth={long ? 1.6 : 1.1}
+        strokeLinecap="round"
+      />
+    );
+  });
+
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 100 100"
+      className={`${TONE_STROKE[tone]} ${className}`}
+    >
+      <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" strokeWidth="1.4" />
+      <circle cx="50" cy="50" r="16" fill="none" stroke="currentColor" strokeWidth="1.1" />
+      {rays}
+    </svg>
+  );
+}
+
+/**
+ * A curling creeper vine (bel-buti) that climbs one edge, with small
+ * leaf buds branching off — a textile-border flourish rather than a
+ * medallion.
+ */
+export function VineFlourish({
+  tone = "dark",
+  className = "",
+}: {
+  tone?: Tone;
+  className?: string;
+}) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 100 100"
+      className={`${TONE_STROKE[tone]} ${className}`}
+    >
+      <path
+        d="M12 96C40 92 28 68 50 60C72 52 60 28 88 20"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.4"
+      />
+      {[
+        [20, 88, -20],
+        [38, 76, 10],
+        [56, 56, -15],
+        [74, 34, 20],
+        [86, 22, -10],
+      ].map(([cx, cy, rot], i) => (
+        <path
+          key={i}
+          d="M0 0C5 -6 5 -14 0 -20C-5 -14 -5 -6 0 0Z"
+          transform={`translate(${cx} ${cy}) rotate(${rot})`}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.1"
+        />
+      ))}
+    </svg>
+  );
+}
+
+/**
+ * An eight-point star (ashtakona) built from two overlapping squares —
+ * a Mughal-jaali star motif, distinct from the round chakra medallion.
+ */
+export function StarburstMotif({
+  tone = "dark",
+  className = "",
+}: {
+  tone?: Tone;
+  className?: string;
+}) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 100 100"
+      className={`${TONE_STROKE[tone]} ${className}`}
+    >
+      <rect x="26" y="26" width="48" height="48" stroke="currentColor" strokeWidth="1.3" fill="none" />
+      <rect
+        x="26"
+        y="26"
+        width="48"
+        height="48"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        fill="none"
+        transform="rotate(45 50 50)"
+      />
+      <circle cx="50" cy="50" r="6" fill="none" stroke="currentColor" strokeWidth="1.1" />
+    </svg>
+  );
+}
+
+/**
+ * An interlocking kolam knot — a continuous looped-line lattice drawn
+ * around a dot grid, like a threshold rangoli sketch.
+ */
+export function KolamKnot({
+  tone = "dark",
+  className = "",
+}: {
+  tone?: Tone;
+  className?: string;
+}) {
+  const dots: [number, number][] = [];
+  for (let r = 0; r < 4; r++) {
+    for (let c = 0; c < 4; c++) {
+      dots.push([20 + c * 20, 20 + r * 20]);
+    }
+  }
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 100 100"
+      className={`${TONE_STROKE[tone]} ${className}`}
+    >
+      {dots.map(([cx, cy], i) => (
+        <circle key={i} cx={cx} cy={cy} r="1.6" fill="currentColor" stroke="none" />
+      ))}
+      <path
+        d="M20 20C36 20 24 40 40 40C56 40 44 20 60 20C76 20 64 40 80 40C64 40 76 60 60 60C44 60 56 40 40 40C24 40 36 60 20 60C4 60 16 40 0 40"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.2"
+      />
+    </svg>
+  );
+}
+
+/**
+ * A diya (oil lamp) silhouette with a teardrop flame — a small, warm
+ * corner motif rather than a symmetric medallion.
+ */
+export function DiyaGlow({
+  tone = "dark",
+  className = "",
+}: {
+  tone?: Tone;
+  className?: string;
+}) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 100 100"
+      className={`${TONE_STROKE[tone]} ${className}`}
+    >
+      <path
+        d="M20 62C20 78 34 88 50 88C66 88 80 78 80 62C68 68 58 64 50 64C42 64 32 68 20 62Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.4"
+      />
+      <circle cx="50" cy="64" r="4" fill="currentColor" stroke="none" />
+      <path
+        d="M50 52C44 42 44 32 50 20C56 32 56 42 50 52Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.3"
+      />
+    </svg>
+  );
+}
+
+/**
+ * A single booti sprig — a small three-leaf floral bud used as a
+ * sparse corner accent, quieter than the full lotus bloom.
+ */
+export function BootiSprig({
+  tone = "dark",
+  className = "",
+}: {
+  tone?: Tone;
+  className?: string;
+}) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 100 100"
+      className={`${TONE_STROKE[tone]} ${className}`}
+    >
+      <path d="M50 90V50" fill="none" stroke="currentColor" strokeWidth="1.4" />
+      <path
+        d="M50 50C50 30 38 22 24 20C26 36 36 48 50 50Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.2"
+      />
+      <path
+        d="M50 50C50 30 62 22 76 20C74 36 64 48 50 50Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.2"
+      />
+      <path
+        d="M50 38C50 24 44 16 36 12C40 24 44 32 50 38Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.1"
+      />
+    </svg>
+  );
+}
+
+/**
  * A single ogee-arch frame, used to give a stat or media block a
  * silhouette reminiscent of a jharokha window rather than a plain
  * rectangle.
