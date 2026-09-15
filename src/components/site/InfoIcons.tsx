@@ -65,3 +65,78 @@ export function CommunicationIcon({ className = "" }: IconProps) {
     </svg>
   );
 }
+
+/** Track progress — a filled magnifying glass over a rising trend. */
+export function TrackIcon({ className = "" }: IconProps) {
+  return (
+    <svg aria-hidden viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path
+        d="M10.5 2a8.5 8.5 0 1 0 5.02 15.36l4.56 4.56 1.42-1.42-4.56-4.56A8.5 8.5 0 0 0 10.5 2Zm0 2.2a6.3 6.3 0 1 1 0 12.6 6.3 6.3 0 0 1 0-12.6Z"
+        fillOpacity="0.35"
+      />
+      <path d="M7.2 11.4 8.9 9.2l1.6 1.4 2.3-3 1.4 1.1-3.5 4.5-1.7-1.5-1 1.3Z" />
+    </svg>
+  );
+}
+
+/** Support & encourage — a filled heart with a steady pulse line. */
+export function HeartIcon({ className = "" }: IconProps) {
+  return (
+    <svg aria-hidden viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path
+        d="M12 20.2C7.8 17.6 3 13.9 3 9.4 3 6.4 5.2 4.3 8 4.3c1.8 0 3.2 1 4 2.4.8-1.4 2.2-2.4 4-2.4 2.8 0 5 2.1 5 5.1 0 4.5-4.8 8.2-9 10.8Z"
+        fillOpacity="0.35"
+      />
+      <path
+        d="M6.5 10.5h2.4l1.4-2 1.7 3.8 1.3-1.8h3.2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+/** Celebrate the offer — a filled trophy. */
+export function TrophyIcon({ className = "" }: IconProps) {
+  return (
+    <svg aria-hidden viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M7 3h10v4a5 5 0 0 1-5 5 5 5 0 0 1-5-5V3Z" fillOpacity="0.35" />
+      <path d="M9.6 12.7h4.8v3.3H9.6Z" />
+      <rect x="8" y="19" width="8" height="1.8" rx="0.9" />
+      <path
+        d="M7 4.5H4.8A2.3 2.3 0 0 0 4.8 9.2H7"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.3"
+      />
+      <path
+        d="M17 4.5h2.2a2.3 2.3 0 0 1 0 4.7H17"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.3"
+      />
+    </svg>
+  );
+}
+
+/** A cycle repeating — two arced arrows chasing each other. */
+export function RefreshLoopIcon({ className = "" }: IconProps) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      className={className}
+    >
+      <path d="M4 12a8 8 0 0 1 13.66-5.66" strokeLinecap="round" />
+      <path d="M20 12a8 8 0 0 1-13.66 5.66" strokeLinecap="round" />
+      <path d="M17 2.6V7h-4.4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M7 21.4V17h4.4" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}

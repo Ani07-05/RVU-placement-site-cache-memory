@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { FAQSection } from "@/components/site/FAQSection";
 import { Footer } from "@/components/site/Footer";
 import { Navbar } from "@/components/site/Navbar";
+import { ParentLoop } from "@/components/site/ParentLoop";
 import { ParentTrust } from "@/components/site/ParentTrust";
 import { EXTERNAL_LINK_PROPS, RVU_LINKS } from "@/lib/links";
 
@@ -77,6 +78,8 @@ export default function ParentsPage() {
             </div>
           </div>
         </section>
+
+        <ParentLoop />
 
         <ParentTrust />
 
