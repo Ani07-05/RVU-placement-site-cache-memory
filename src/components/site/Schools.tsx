@@ -28,7 +28,7 @@ const SCHOOLS: {
     total: 737,
     icon: ChipIcon,
     color: "#d3a957",
-    ringSoft: "text-gold-500",
+    ringSoft: "text-gold-800",
     courses: [
       { name: "B.Tech (Hons.)", students: 547 },
       { name: "B.Sc (Hons.)", students: 172 },
@@ -83,7 +83,7 @@ const SCHOOLS: {
     total: 59,
     icon: BookIcon,
     color: "#d0a863",
-    ringSoft: "text-gold-600",
+    ringSoft: "text-gold-800",
     courses: [
       { name: "B.Sc (Hons.) – Psychology", students: 30 },
       { name: "M.Sc – Psychology", students: 23 },
@@ -167,7 +167,7 @@ export function Schools() {
       <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
         <Reveal className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-xl">
-            <span className="text-xs font-semibold tracking-[0.14em] text-gold-600 uppercase">
+            <span className="text-xs font-semibold tracking-[0.14em] text-gold-800 uppercase">
               Schools
             </span>
             <h2 className="mt-4 font-display text-4xl leading-[1.08] font-semibold tracking-tight text-navy-700 sm:text-5xl">

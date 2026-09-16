@@ -13,7 +13,7 @@ export function FAQSection({ eyebrow, heading, items }: FAQSectionProps) {
     <section className="bg-paper py-24 lg:py-32">
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
         <Reveal className="mb-12 text-center">
-          <span className="text-xs font-semibold tracking-[0.14em] text-gold-600 uppercase">
+          <span className="text-xs font-semibold tracking-[0.14em] text-gold-800 uppercase">
             {eyebrow}
           </span>
           <h2 className="mt-4 font-display text-4xl leading-[1.08] font-semibold tracking-tight text-navy-700 sm:text-5xl">
@@ -32,7 +32,7 @@ export function FAQSection({ eyebrow, heading, items }: FAQSectionProps) {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.7"
-                    className="h-4 w-4 shrink-0 text-gold-600 transition-transform duration-300 group-open:rotate-45"
+                    className="h-4 w-4 shrink-0 text-gold-800 transition-transform duration-300 group-open:rotate-45"
                   >
                     <path d="M12 5v14M5 12h14" strokeLinecap="round" />
                   </svg>

@@ -8,10 +8,10 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden bg-paper pt-8 pb-20 sm:pt-14 sm:pb-28 lg:pt-20 lg:pb-36">
       <PetalChakra
         tone="dark"
-        className="animate-chakra-spin pointer-events-none absolute -top-16 -right-20 h-72 w-72 opacity-70 lg:h-[24rem] lg:w-[24rem]"
+        className="animate-chakra-spin pointer-events-none absolute -top-16 -right-20 z-20 h-72 w-72 opacity-70 lg:h-[24rem] lg:w-[24rem]"
       />
 
-      <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
+      <div className="relative z-0 mx-auto max-w-6xl px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-10">
           <div className="flex flex-col items-start gap-7 text-left">
             <span className="inline-flex items-center gap-2 rounded-full border border-navy-700/12 bg-navy-700/[0.04] px-4 py-1.5 text-xs font-semibold tracking-wide text-navy-700 uppercase">
@@ -20,7 +20,7 @@ export function Hero() {
 
             <h1 className="font-display text-5xl leading-[1.05] font-semibold tracking-tight text-navy-700 sm:text-6xl lg:text-[3.75rem]">
               Empowering industry innovators with{" "}
-              <span className="text-gold-600">top-tier talent.</span>
+              <span className="text-gold-800">top-tier talent.</span>
             </h1>
 
             <p className="max-w-xl text-lg leading-relaxed text-ink-soft">

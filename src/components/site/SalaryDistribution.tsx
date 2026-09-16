@@ -13,7 +13,7 @@ export function SalaryDistribution() {
     <section className="bg-mist-50 py-24 lg:py-32">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
         <Reveal>
-          <span className="text-xs font-semibold tracking-[0.14em] text-gold-600 uppercase">
+          <span className="text-xs font-semibold tracking-[0.14em] text-gold-800 uppercase">
             Salary distribution by offer
           </span>
           <h2 className="mt-4 font-display text-4xl leading-[1.08] font-semibold tracking-tight text-navy-700 sm:text-5xl">
@@ -30,7 +30,7 @@ export function SalaryDistribution() {
             <div key={bracket.range} className="flex flex-col gap-2.5">
               <div className="flex items-baseline justify-between text-sm font-medium text-navy-700">
                 <span>{bracket.range}</span>
-                <span className="font-display text-lg font-semibold text-gold-600">
+                <span className="font-display text-lg font-semibold text-gold-800">
                   {bracket.count}
                   <span className="ml-1 text-xs font-normal text-ink-soft">
                     offers

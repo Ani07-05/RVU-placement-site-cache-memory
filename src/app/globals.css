@@ -18,6 +18,7 @@
   --color-gold-500: #d3a957;
   --color-gold-600: #d0a863;
   --color-gold-700: #b3894a;
+  --color-gold-800: #8a6530;
 
   --color-ink: #1c2226;
   --color-ink-soft: #5c5648;
@@ -41,6 +42,7 @@
   --color-gold-500: var(--color-gold-500);
   --color-gold-600: var(--color-gold-600);
   --color-gold-700: var(--color-gold-700);
+  --color-gold-800: var(--color-gold-800);
 
   --color-ink: var(--color-ink);
   --color-ink-soft: var(--color-ink-soft);
@@ -142,8 +144,15 @@ html {
   transition: filter 0.35s ease;
 }
 
-.grayscale-logo:hover {
+.group:hover .grayscale-logo {
   filter: grayscale(0) opacity(1);
+}
+
+/* Touch devices (no hover) always show logos in full color */
+@media (hover: none) {
+  .grayscale-logo {
+    filter: grayscale(0) opacity(1);
+  }
 }
 
 @keyframes marquee {

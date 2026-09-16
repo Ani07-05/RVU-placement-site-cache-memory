@@ -73,7 +73,7 @@ export function WhyRecruit() {
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,20rem)_1fr] lg:gap-20">
           <Reveal className="lg:sticky lg:top-28 lg:self-start">
-            <span className="text-xs font-semibold tracking-[0.14em] text-gold-600 uppercase">
+            <span className="text-xs font-semibold tracking-[0.14em] text-gold-800 uppercase">
               Why RVU
             </span>
             <h2 className="mt-4 font-display text-4xl leading-[1.08] font-semibold tracking-tight text-navy-700 sm:text-5xl">
@@ -89,7 +89,7 @@ export function WhyRecruit() {
             {REASONS.map((reason, i) => (
               <Reveal key={reason.title} delay={i * 70}>
                 <div className="group relative grid grid-cols-1 gap-4 overflow-hidden rounded-2xl p-6 transition-colors duration-300 hover:bg-paper sm:grid-cols-[3rem_1fr] sm:gap-8 sm:p-8">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-navy-700/[0.05] text-navy-700 transition-colors duration-300 group-hover:bg-gold-500/15 group-hover:text-gold-600">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-navy-700/[0.05] text-navy-700 transition-colors duration-300 group-hover:bg-gold-500/15 group-hover:text-gold-800">
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"

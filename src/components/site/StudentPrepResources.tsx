@@ -38,7 +38,7 @@ export function StudentPrepResources() {
       <JaliOverlay tone="dark" className="opacity-60" />
       <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
         <Reveal className="mx-auto mb-4 max-w-2xl text-center">
-          <span className="text-xs font-semibold tracking-[0.14em] text-gold-600 uppercase">
+          <span className="text-xs font-semibold tracking-[0.14em] text-gold-800 uppercase">
             Get placement-ready
           </span>
           <h2 className="mt-4 font-display text-4xl leading-[1.08] font-semibold tracking-tight text-navy-700 sm:text-5xl">

@@ -115,7 +115,7 @@ export function Navbar() {
           </div>
         </nav>
 
-        <div className="hidden items-center gap-1 rounded-full border border-mist-200/70 bg-paper/80 p-1 text-[12px] font-semibold shadow-[0_8px_20px_-16px_rgba(35,48,57,0.4)] backdrop-blur-xl md:flex">
+        <div className="hidden text-[12px] font-semibold md:flex md:items-center md:gap-1 md:rounded-full md:border md:border-mist-200/70 md:bg-paper/80 md:p-1 md:shadow-[0_8px_20px_-16px_rgba(35,48,57,0.4)] md:backdrop-blur-xl">
           {AUDIENCE_ITEMS.map((item) => {
             const active = item.href === "/" ? onHome : pathname === item.href;
             return (
@@ -136,8 +136,10 @@ export function Navbar() {
       </div>
 
       <div
-        className={`pointer-events-auto absolute top-full right-4 left-4 mt-2 grid overflow-hidden rounded-3xl border border-mist-200/80 bg-paper/95 shadow-lg backdrop-blur-2xl transition-[grid-template-rows] duration-300 sm:right-6 sm:left-6 md:hidden ${
-          open ? "grid-rows-[1fr]" : "grid-rows-[0fr] border-transparent"
+        className={`pointer-events-auto absolute top-full right-4 left-4 mt-2 grid overflow-hidden rounded-3xl border bg-paper/95 backdrop-blur-2xl transition-[grid-template-rows,opacity] duration-300 sm:right-6 sm:left-6 md:hidden ${
+          open
+            ? "grid-rows-[1fr] border-mist-200/80 opacity-100 shadow-lg"
+            : "grid-rows-[0fr] border-transparent opacity-0 shadow-none"
         }`}
       >
         <div className="min-h-0">

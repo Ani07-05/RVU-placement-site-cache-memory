@@ -15,7 +15,7 @@ export function CTASection() {
             <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               Partner with RV University
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-navy-500 sm:text-base">
+            <p className="mt-4 text-sm leading-relaxed text-gold-300 sm:text-base">
               Reach a multidisciplinary, industry-ready talent pool through
               the Career Development and Corporate Relations office.
             </p>
@@ -36,10 +36,10 @@ export function CTASection() {
             </div>
 
             <div className="relative z-10 mt-14 border-t border-paper/15 pt-10">
-              <h3 className="font-display text-sm font-semibold tracking-[0.14em] text-gold-300 uppercase">
+              <h3 className="font-display text-sm font-semibold tracking-[0.14em] text-gold-500 uppercase">
                 Contact Us
               </h3>
-              <p className="mt-4 text-sm leading-relaxed text-navy-500">
+              <p className="mt-4 text-sm leading-relaxed text-gold-300">
                 Corporate &amp; Alumni Relations (CAR) Office, RV University,
                 <br />
                 5th Floor, D Block,

@@ -15,7 +15,7 @@ export default function RecruiterRegisterPage() {
       <Navbar />
       <main className="flex flex-1 flex-col bg-mist-50 py-8 sm:py-12 lg:py-14">
         <div className="mx-auto w-full max-w-2xl px-6 lg:px-8">
-          <span className="text-xs font-semibold tracking-[0.14em] text-gold-600 uppercase">
+          <span className="text-xs font-semibold tracking-[0.14em] text-gold-800 uppercase">
             Recruiter registration
           </span>
           <h1 className="mt-4 font-display text-3xl leading-[1.1] font-semibold tracking-tight text-navy-700 sm:text-4xl">

@@ -67,7 +67,7 @@ export function Recruiters() {
     <section id="recruiters" className="bg-paper py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <Reveal className="mx-auto mb-4 max-w-2xl text-center">
-          <span className="text-xs font-semibold tracking-[0.14em] text-gold-600 uppercase">
+          <span className="text-xs font-semibold tracking-[0.14em] text-gold-800 uppercase">
             Recruiting partners
           </span>
           <h2 className="mt-4 font-display text-4xl leading-[1.08] font-semibold tracking-tight text-navy-700 sm:text-5xl">
@@ -99,7 +99,7 @@ export function Recruiters() {
         </Reveal>
 
         <Reveal delay={110} className="mb-14">
-          <p className="mb-5 text-center text-xs font-semibold tracking-[0.14em] text-gold-600 uppercase">
+          <p className="mb-5 text-center text-xs font-semibold tracking-[0.14em] text-gold-800 uppercase">
             Recruiter categories
           </p>
           <div className="mx-auto grid max-w-4xl grid-cols-2 divide-x divide-y divide-mist-200 overflow-hidden rounded-3xl border border-mist-200 sm:grid-cols-3 lg:grid-cols-6 lg:divide-y-0">
@@ -108,7 +108,7 @@ export function Recruiters() {
                 key={label}
                 className="group flex flex-col items-center gap-2.5 px-4 py-7 text-center transition-colors duration-300 hover:bg-mist-50"
               >
-                <Icon className="h-6 w-6 text-navy-700/55 transition-colors duration-300 group-hover:text-gold-500" />
+                <Icon className="h-6 w-6 text-navy-700/55 transition-colors duration-300 group-hover:text-gold-800" />
                 <span className="text-sm font-semibold text-navy-700">
                   {label}
                 </span>
@@ -123,7 +123,7 @@ export function Recruiters() {
               {RECRUITERS.map((r) => (
                 <div
                   key={r.name}
-                  className="flex h-24 items-center justify-center gap-2 bg-paper p-6 transition-colors duration-300 hover:bg-mist-50 sm:h-28"
+                  className="group flex h-24 items-center justify-center gap-2 bg-paper p-6 transition-colors duration-300 hover:bg-mist-50 sm:h-28"
                 >
                   {r.type === "image" ? (
                     <img

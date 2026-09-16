@@ -28,7 +28,7 @@ export function StudentProcessFlow() {
     <section id="student-process" className="scroll-mt-28 bg-paper pt-4 pb-24 sm:pt-6 lg:pb-32">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <Reveal className="mx-auto mb-16 max-w-2xl text-center">
-          <span className="text-xs font-semibold tracking-[0.14em] text-gold-600 uppercase">
+          <span className="text-xs font-semibold tracking-[0.14em] text-gold-800 uppercase">
             Your placement journey
           </span>
           <h2 className="mt-4 font-display text-4xl leading-[1.08] font-semibold tracking-tight text-navy-700 sm:text-5xl">
@@ -89,7 +89,7 @@ export function StudentProcessFlow() {
 
         <Reveal delay={200} className="relative mx-auto mt-16 max-w-3xl">
           <div className="border-t border-dashed border-gold-500/50" aria-hidden />
-          <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-paper px-4 font-display text-xs font-semibold tracking-[0.14em] text-gold-600 uppercase">
+          <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-paper px-4 font-display text-xs font-semibold tracking-[0.14em] text-gold-800 uppercase">
             Overseen throughout by CAR
           </span>
           <p className="mt-6 text-center text-sm leading-relaxed text-ink-soft">

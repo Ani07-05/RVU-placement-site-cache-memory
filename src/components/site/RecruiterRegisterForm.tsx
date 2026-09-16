@@ -155,7 +155,7 @@ function Field({
     <div>
       <label className="block text-sm font-semibold text-navy-700">
         {label}
-        {required && <span className="ml-0.5 text-gold-600">*</span>}
+        {required && <span className="ml-0.5 text-gold-800">*</span>}
       </label>
       {hint && <p className="mt-1 text-xs text-ink-soft">{hint}</p>}
       <div className="mt-2">{children}</div>

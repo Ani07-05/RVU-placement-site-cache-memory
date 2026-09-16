@@ -48,9 +48,9 @@ export default function ParentsPage() {
     <div className="flex flex-1 flex-col">
       <Navbar />
       <main className="flex flex-1 flex-col">
-        <section className="bg-paper pt-16 pb-8 sm:pt-24 sm:pb-12">
+        <section className="flex min-h-[calc(100svh-6rem)] flex-col justify-center bg-paper py-16 sm:min-h-[calc(100svh-7rem)]">
           <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
-            <span className="text-xs font-semibold tracking-[0.14em] text-gold-600 uppercase">
+            <span className="text-xs font-semibold tracking-[0.14em] text-gold-800 uppercase">
               For parents
             </span>
             <h1 className="mt-4 font-display text-4xl leading-[1.08] font-semibold tracking-tight text-navy-700 sm:text-5xl">
